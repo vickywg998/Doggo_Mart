@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Products from "./Products";
@@ -8,128 +8,126 @@ import Col from "react-bootstrap/Col";
 import CardDeck from "react-bootstrap/CardDeck";
 import Banner from "./Banner";
 import Filter from "./Filter";
-import Basket from "./Basket";
-// import HomepageOverview from "./Hooks/HomepageOverview";
-// import React, { useState, useEffect } from "react";
+// import Basket from "./Basket";
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { products: [], filteredProducts: [], cartItems: [] };
-  }
+function Home(props) {
+  // this.state = { products: [], filteredProducts: [], cartItems: [] };
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
-  componentWillMount() {
-    //fetching products from localhost
-    fetch("http://localhost:8000/products")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ products: data, filteredProducts: data });
-      });
-      //shopping cart item 
-      if(localStorage.getItem('cartItems')){
-        this.setState({cartItems: JSON.parse(localStorage.getItem('cartItems'))})
-      }
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("http://localhost:8000/products");
+      // console.log(res.json())
+      res
+        .json()
+        .then((data) => setProducts(data))
+        .then((data) => setFilteredProducts(data));
+    };
+    fetchData();
+  }, []);
 
+    // const handleAddToCart = (e, product) => {
+    //   this.setState((state) => {
+    //     const cartItems = state.cartItems;
+    //     let productAlreadyInCart = false;
+    //     cartItems.forEach((item) => {
+    //       if (item.id === product.id) {
+    //         productAlreadyInCart = true;
+    //         item.count++;
+    //       }
+    //     });
+    //     if (!productAlreadyInCart) {
+    //       cartItems.push({ ...product, count: 1 });
+    //     }
+    //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    //     return cartItems;
+    //   });
+    // };
 
-  handleAddToCart = (e, product) => {
-    this.setState((state) => {
-      const cartItems = state.cartItems;
-      let productAlreadyInCart = false;
-      cartItems.forEach((item) => {
-        if (item.id === product.id) {
-          productAlreadyInCart = true;
-          item.count++;
-        }
-      });
-      if (!productAlreadyInCart) {
-        cartItems.push({ ...product, count: 1 });
-      }
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      return cartItems;
-    });
-  };
+  //   const handleRemoveFromCart =(e, item)=> {
+  // this.setState(state => {
+  //   const cartItems = state.cartItems.filter(elm => elm.id != item.id);
+  //   localStorage.setItem('cartItems', cartItems);
+  //   return { cartItems: cartItems };
+  // })
+  //   };
 
-  handleRemoveFromCart =(e, item)=> {
-this.setState(state => {
-  const cartItems = state.cartItems.filter(elm => elm.id != item.id);
-  localStorage.setItem('cartItems', cartItems);
-  return { cartItems: cartItems };
-})
-  };
+  //   const listProducts = () => {
+  //     this.setState((state) => {
+  //       if (state.sort !== "") {
+  //         state.products.sort((a, b) =>
+  //           state.sort === "lowest"
+  //             ? a.price > b.price
+  //               ? 1
+  //               : -1
+  //             : a.price < b.price
+  //             ? 1
+  //             : -1
+  //         );
+  //       } else {
+  //         state.products.sort((a, b) => (a.id > b.id ? 1 : -1));
+  //       }
+  //       // if (state.size !== "") {
+  //       //   return {
+  //       //     filteredProducts: state.products.filter(
+  //       //       a => a.availableSizes.indexOf(state.size.toUpperCase()) >= 0
+  //       //     )
+  //       //   };
+  //       // }
+  //       return { filteredProducts: state.products };
+  //     });
+  //   };
 
-
-  listProducts = () => {
-    this.setState((state) => {
-      if (state.sort !== "") {
-        state.products.sort((a, b) =>
-          state.sort === "lowest"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : a.price < b.price
-            ? 1
-            : -1
-        );
-      } else {
-        state.products.sort((a, b) => (a.id > b.id ? 1 : -1));
-      }
-      // if (state.size !== "") {
-      //   return {
-      //     filteredProducts: state.products.filter(
-      //       a => a.availableSizes.indexOf(state.size.toUpperCase()) >= 0
-      //     )
-      //   };
-      // }
-      return { filteredProducts: state.products };
-    });
-  };
-
-  handleChangeSort = (e) => {
-    this.setState({ sort: e.target.value });
-    this.listProducts();
-  };
+    const handleChangeSort = (e) => {
+      this.setState({ sort: e.target.value });
+      this.listProducts();
+    };
 
   // handleChangeSize = (e) => {
   //   this.setState({ size: e.target.value });
   //   this.listProducts();
   // };
 
-  render() {
-    return (
-      <div>
-        <Banner />
-        <Container>
-          <h1 className="homepage-title">Discover better-for-you Doggos</h1>
+  return (
+    <div>
+      <Banner />
+      <Container>
+        <h1 className="homepage-title">Discover better-for-you Doggos</h1>
 
-          <Row>
-            <Col md={9}>
-              <Filter
-                // size={this.state.size}
-                sort={this.state.sort}
-                // handleChangeSize={this.handleChangeSize}
-                handleChangeSort={this.handleChangeSort}
-                count={this.state.filteredProducts.length}
-              />
+        <Row>
+          <Col md={9}>
+            <Filter
+            // size={this.state.size}
+            // sort={sort}
+            // handleChangeSize={this.handleChangeSize}
+            // setHandleChangeSort={setHandleChangeSort}
+            // count={this.state.filteredProducts.length}
+            />
 
-              <hr />
+            <hr />
 
-              {/* <HomepageOverview state={state} setState={setState}/> */}
-              <Products
-                products={this.state.filteredProducts}
-                handleAddToCart={this.handleAddToCart}
-              />
-            </Col>
+            {/* <HomepageOverview state={state} setState={setState}/> */}
+            <Products
+              filteredProducts={filteredProducts}
+              setFilteredProducts={setFilteredProducts}
+              products={products}
+              setProducts={setProducts}
+              // handleAddToCart={this.handleAddToCart}
+            />
+          </Col>
 
-            <Col>
-              <Basket
-                cartItems={this.state.cartItems}
+          <Col>
+            {/* <Basket
+                // cartItems={this.state.cartItems}
                 handleRemoveFromCart={this.handleRemoveFromCart}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }
+              /> */}
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 }
+
+export default Home;
