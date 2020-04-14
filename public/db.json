@@ -1,0 +1,202 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "sku": 584029384930293,
+        "title": "Millie",
+        "description": "Sphynx Tie Dye Grey",
+        "availableSizes": ["X", "L", "XL", "XXL"],
+        "price": 10,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 2,
+        "sku": 11854078013954528,
+        "title": "Ollie",
+        "description": "Danger Knife Grey",
+        "availableSizes": ["X", "M", "L"],
+        "price": 14.9,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 3,
+        "sku": 876661122392077,
+        "title": "Ernie",
+        "description": "White DGK Script",
+        "availableSizes": ["X", "M", "L"],
+        "price": 14.9,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 4,
+        "sku": 9197907543445677,
+        "title": "Bean",
+        "description": "Born On The Streets",
+        "availableSizes": ["XL"],
+        "price": 25.9,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 5,
+        "sku": 10547961582846888,
+        "title": "Cheerio",
+        "description": "Tso 3D Short Sleeve",
+        "availableSizes": ["X", "L", "XL"],
+        "price": 10.9,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 6,
+        "sku": 6090484789343891,
+        "title": "Sandy",
+        "description": "Man Tie Dye Cinza Grey",
+        "availableSizes": ["XL", "XXL"],
+        "price": 49.9,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 7,
+        "sku": 18532669286405342,
+        "title": "Pepper",
+        "description": "1977 Infantil",
+        "availableSizes": ["S"],
+        "style": "Preto com listras brancas",
+        "price": 22.5,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 8,
+        "sku": 5619496040738316,
+        "title": "Peanut",
+        "description": "",
+        "availableSizes": ["XL"],
+        "style": "Azul escuro",
+        "price": 18.7,
+        "isFreeShipping": false
+      },
+      {
+        "id": 9,
+        "sku": 11600983276356165,
+        "title": "Jasper",
+        "description": "",
+        "availableSizes": ["L", "XL"],
+        "price": 145.2,
+        "isFreeShipping": true
+      },
+      {
+        "id": 10,
+        "sku": 11600983276356150,
+        "title": "Bailey",
+        "description": "",
+        "availableSizes": ["L", "XL"],
+        "price": 204.9,
+        "isFreeShipping": true
+      },
+      {
+        "id": 11,
+        "sku": 1864411584791312,
+        "title": "Logan",
+        "description": "Sphynx Tie Dye Grey",
+        "availableSizes": ["X", "L", "XL", "XXL"],
+        "price": 89.2,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 12,
+        "sku": 11856874013954528,
+        "title": "Bella",
+        "description": "Danger Knife Grey",
+        "availableSizes": ["X", "M", "L"],
+        "price": 56.9,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 13,
+        "sku": 87666112234612,
+        "title": "Daisy",
+        "description": "White DGK Script",
+        "availableSizes": ["X", "M", "L"],
+        "price": 82.2,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 14,
+        "sku": 584029384930293,
+        "title": "Teddy",
+        "description": "Born On The Streets",
+        "availableSizes": ["XL"],
+        "price": 43.7,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 15,
+        "sku": 10547961582823760,
+        "title": "Jack",
+        "description": "Tso 3D Short Sleeve",
+        "availableSizes": ["X", "L", "XL"],
+        "price": 84.4,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 16,
+        "sku": 3085384789343891,
+        "title": "Max",
+        "description": "Man Tie Dye Cinza Grey",
+        "availableSizes": ["XL", "XXL"],
+        "price": 50.2,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 17,
+        "sku": 1853266928644682,
+        "title": "Charlie",
+        "description": "1977 Infantil",
+        "availableSizes": ["S"],
+        "style": "Preto com listras brancas",
+        "price": 69.4,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 18,
+        "sku": 8536496040738316,
+        "title": "Lucy",
+        "description": "",
+        "availableSizes": ["XL"],
+        "style": "Azul escuro",
+        "price": 180.6,
+        "isFreeShipping": false
+      },
+      {
+        "id": 19,
+        "sku": 4958304958493049,
+        "title": "Frankie",
+        "description": "",
+        "availableSizes": ["L", "XL"],
+        "price": 134.9,
+        "isFreeShipping": true
+      },
+      {
+        "id": 20,
+        "sku": 11649883276356150,
+        "title": "Willow",
+        "description": "",
+        "availableSizes": ["L", "XL"],
+        "price": 136.9,
+        "isFreeShipping": true
+      }
+    ]
+  }
