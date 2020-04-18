@@ -8,87 +8,77 @@ import Col from "react-bootstrap/Col";
 import CardDeck from "react-bootstrap/CardDeck";
 import Banner from "./Banner";
 import Filter from "./Filter";
-// import Basket from "./Basket";
+import Basket from "./Basket";
 
 function Home(props) {
-  // this.state = { products: [], filteredProducts: [], cartItems: [] };
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [sortValue, setSortValue] = useState("ascending");
+  const [count, setCount] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("http://localhost:8000/products");
-      // console.log(res.json())
-      res
-        .json()
-        .then((data) => setProducts(data))
-        .then((data) => setFilteredProducts(data));
+      const unsortedProducts = await res.json();
+      console.log(unsortedProducts, "unsortedProducts");
+      const sorted = sortProducts(unsortedProducts, sortValue);
+      // set this up to combat useState not changing immediately (prevstate, result)
+      setProducts(sorted);
     };
     fetchData();
   }, []);
 
-    // const handleAddToCart = (e, product) => {
-    //   this.setState((state) => {
-    //     const cartItems = state.cartItems;
-    //     let productAlreadyInCart = false;
-    //     cartItems.forEach((item) => {
-    //       if (item.id === product.id) {
-    //         productAlreadyInCart = true;
-    //         item.count++;
-    //       }
-    //     });
-    //     if (!productAlreadyInCart) {
-    //       cartItems.push({ ...product, count: 1 });
-    //     }
-    //     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    //     return cartItems;
-    //   });
-    // };
+  const sortProducts = (list, sortValueToUse) => {
+    let sorted = list;
+    // console.log(sorted, "unsorted list");
+    if (sortValueToUse === "ascending") {
+      sorted = list.sort((a, b) => a.price - b.price);
+    }
+    if (sortValueToUse === "descending") {
+      sorted = list.sort((a, b) => b.price - a.price);
+    }
+    // console.log(sorted, "sorted");
+    return sorted;
+  };
 
-  //   const handleRemoveFromCart =(e, item)=> {
-  // this.setState(state => {
-  //   const cartItems = state.cartItems.filter(elm => elm.id != item.id);
-  //   localStorage.setItem('cartItems', cartItems);
-  //   return { cartItems: cartItems };
-  // })
-  //   };
+  // introducing another argument
 
-  //   const listProducts = () => {
-  //     this.setState((state) => {
-  //       if (state.sort !== "") {
-  //         state.products.sort((a, b) =>
-  //           state.sort === "lowest"
-  //             ? a.price > b.price
-  //               ? 1
-  //               : -1
-  //             : a.price < b.price
-  //             ? 1
-  //             : -1
-  //         );
-  //       } else {
-  //         state.products.sort((a, b) => (a.id > b.id ? 1 : -1));
-  //       }
-  //       // if (state.size !== "") {
-  //       //   return {
-  //       //     filteredProducts: state.products.filter(
-  //       //       a => a.availableSizes.indexOf(state.size.toUpperCase()) >= 0
-  //       //     )
-  //       //   };
-  //       // }
-  //       return { filteredProducts: state.products };
-  //     });
-  //   };
+  const handleChangeSort = (e) => {
+    const newSortValue = e.target.value;
+    setSortValue(newSortValue);
+    const sorted = sortProducts(products, newSortValue);
+    setProducts(sorted);
+    //setProducts() side effects, any of the ones that use useState setter functions = side effects
+    console.log(newSortValue, "target value");
+  };
 
-    const handleChangeSort = (e) => {
-      this.setState({ sort: e.target.value });
-      this.listProducts();
-    };
-
-  // handleChangeSize = (e) => {
-  //   this.setState({ size: e.target.value });
-  //   this.listProducts();
+  // const handleAddToCart = (e, product) => {
+  //   let productAlreadyInCart = false;
+  //   const newCartItems = cartItems.forEach((item) => {
+  //     if (item.id === product.id) {
+  //       productAlreadyInCart = true;
+  //       item.count++;
+  //     }
+  //     console.log('added')
+  //   });
+  // setCartItems(newCartItems);
+  //   if (!productAlreadyInCart) {
+  //     const newCartItems = cartItems.push({ ...product, count: 1 });
+  //   }
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  //   setCartItems(newCartItems);
+  //   return cartItems;
   // };
+
+// const handleRemoveFromCart =(e, item)=> {
+
+//   const removedCartItems = cartItems.filter(elm => elm.id != item.id);
+//   setCartItems(removedCartItems)
+//   localStorage.setItem('cartItems', removedCartItems);
+//   return removedCartItems;
+
+//   };
+
 
   return (
     <div>
@@ -99,30 +89,25 @@ function Home(props) {
         <Row>
           <Col md={9}>
             <Filter
-            // size={this.state.size}
-            // sort={sort}
-            // handleChangeSize={this.handleChangeSize}
-            // setHandleChangeSort={setHandleChangeSort}
-            // count={this.state.filteredProducts.length}
+              sortValue={sortValue}
+              handleChangeSort={handleChangeSort}
+              count={products.length}
             />
 
             <hr />
 
-            {/* <HomepageOverview state={state} setState={setState}/> */}
             <Products
-              filteredProducts={filteredProducts}
-              setFilteredProducts={setFilteredProducts}
               products={products}
               setProducts={setProducts}
-              // handleAddToCart={this.handleAddToCart}
+              // handleAddToCart={handleAddToCart}
             />
           </Col>
 
           <Col>
-            {/* <Basket
-                // cartItems={this.state.cartItems}
-                handleRemoveFromCart={this.handleRemoveFromCart}
-              /> */}
+            <Basket
+                cartItems={cartItems}
+                // handleRemoveFromCart={handleRemoveFromCart}
+              />
           </Col>
         </Row>
       </Container>
@@ -131,3 +116,5 @@ function Home(props) {
 }
 
 export default Home;
+
+

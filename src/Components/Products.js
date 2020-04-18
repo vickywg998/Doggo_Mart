@@ -35,7 +35,6 @@ function Products(props) {
     </Card>
   ));
   return <ul id="list">{productItems}</ul>;
-  // return <div>hi</div>;
 }
 
 export default Products;
