@@ -8,7 +8,7 @@ function Products(props) {
     <Card key={product.id}>
       <a
         href={`#${product.id}`}
-        onClick={(e) => props.handleAddToCart(e, product)}
+        onClick={(e) => props.HandleAddToCart(product.id)}
       >
         <Card.Img
           className="card-img-top"
@@ -25,7 +25,7 @@ function Products(props) {
           <Card.Title>
             <Button
               className="button_primary-color pet-button"
-              onClick={(e) => props.handleAddToCart(e, product)}
+              onClick={() => props.HandleAddToCart(product.id)}
             >
               <Icon name="add to cart" /> Add to cart
             </Button>

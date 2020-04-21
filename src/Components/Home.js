@@ -14,7 +14,17 @@ function Home(props) {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [sortValue, setSortValue] = useState("ascending");
-  const [count, setCount] = useState([]);
+  const [count, setCount] = useState(1);
+
+  function usePersistedState(key, defaultValue) {
+    const [state, setState] = React.useState(
+      JSON.parse(localStorage.getItem(key)) || defaultValue
+    );
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
+    return [state, setState];
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,33 +62,16 @@ function Home(props) {
     console.log(newSortValue, "target value");
   };
 
-  // const handleAddToCart = (e, product) => {
-  //   let productAlreadyInCart = false;
-  //   const newCartItems = cartItems.forEach((item) => {
-  //     if (item.id === product.id) {
-  //       productAlreadyInCart = true;
-  //       item.count++;
-  //     }
-  //     console.log('added')
-  //   });
-  // setCartItems(newCartItems);
-  //   if (!productAlreadyInCart) {
-  //     const newCartItems = cartItems.push({ ...product, count: 1 });
-  //   }
-  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  //   setCartItems(newCartItems);
-  //   return cartItems;
-  // };
+  const HandleAddToCart = (index) => {
+    let productAlreadyInCart = false;
 
-// const handleRemoveFromCart =(e, item)=> {
-
-//   const removedCartItems = cartItems.filter(elm => elm.id != item.id);
-//   setCartItems(removedCartItems)
-//   localStorage.setItem('cartItems', removedCartItems);
-//   return removedCartItems;
-
-//   };
-
+    if (!productAlreadyInCart) {
+      const newCartItem = products[index];
+      setCartItems(cartItems.concat(newCartItem));
+      setCount(count+1);
+      console.log("count", count)
+    }
+  };
 
   return (
     <div>
@@ -99,15 +92,17 @@ function Home(props) {
             <Products
               products={products}
               setProducts={setProducts}
-              // handleAddToCart={handleAddToCart}
+              HandleAddToCart={HandleAddToCart}
+              
             />
           </Col>
 
           <Col>
             <Basket
-                cartItems={cartItems}
-                // handleRemoveFromCart={handleRemoveFromCart}
-              />
+              cartItems={cartItems}
+              count={count}
+              // handleRemoveFromCart={handleRemoveFromCart}
+            />
           </Col>
         </Row>
       </Container>
@@ -116,5 +111,3 @@ function Home(props) {
 }
 
 export default Home;
-
-
