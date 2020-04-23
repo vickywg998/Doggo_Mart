@@ -14,7 +14,7 @@ function Home(props) {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [sortValue, setSortValue] = useState("ascending");
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
   function usePersistedState(key, defaultValue) {
     const [state, setState] = React.useState(
@@ -62,16 +62,32 @@ function Home(props) {
     console.log(newSortValue, "target value");
   };
 
-  const HandleAddToCart = (index) => {
+  const HandleAddToCart = (product) => {
     let productAlreadyInCart = false;
+  
+    cartItems.forEach(item => {
+      if (product.id === item.id ) {
+        item.count += 1;
+        console.log(item.count)
+        productAlreadyInCart = true;
+      }
+    });
 
     if (!productAlreadyInCart) {
-      const newCartItem = products[index];
-      setCartItems(cartItems.concat(newCartItem));
-      setCount(count+1);
-      console.log("count", count)
+      const newCartItem = product;
+      newCartItem.count = 1;
+      console.log(cartItems)
+    setCartItems(cartItems.concat(newCartItem));
+     
     }
   };
+
+  const handleRemoveFromCart = (product) => {
+    const removedCartItems = cartItems.filter(a => a.id !== product.id);
+    setCartItems(removedCartItems);
+    console.log(removedCartItems, "removed item")
+  };
+
 
   return (
     <div>
@@ -100,8 +116,8 @@ function Home(props) {
           <Col>
             <Basket
               cartItems={cartItems}
-              count={count}
-              // handleRemoveFromCart={handleRemoveFromCart}
+              // count={count}
+              handleRemoveFromCart={handleRemoveFromCart}
             />
           </Col>
         </Row>

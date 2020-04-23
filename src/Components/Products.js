@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import util from "../util";
 import { Icon, Button } from "semantic-ui-react";
 
+
 function Products(props) {
   const productItems = props.products.map((product) => (
     <Card key={product.id}>
@@ -25,7 +26,7 @@ function Products(props) {
           <Card.Title>
             <Button
               className="button_primary-color pet-button"
-              onClick={() => props.HandleAddToCart(product.id)}
+              onClick={() => props.HandleAddToCart(product)}
             >
               <Icon name="add to cart" /> Add to cart
             </Button>

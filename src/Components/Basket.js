@@ -12,7 +12,7 @@ const Basket = (props) => {
         <div>
           <h3>
             {" "}
-            You have {props.cartItems.length} different{" "}
+            You have {props.cartItems.length} different {" "}
             {props.cartItems.length > 1 ? "doggos" : "doggo"} to pet in the
             Doggo Basket.
           </h3>
@@ -22,22 +22,23 @@ const Basket = (props) => {
         <div>
           <ul>
             {props.cartItems.map((item) => (
+             
               <li key={item.id}>
-                <b>{item.title}</b>
-                <b>{item.title}</b> X {item.count} = {item.price * item.count}
-                {/* 
+                <b>{item.title}</b> X {item.count} = $ {item.price * item.count}
+
+             
               <Button
                 className="button_primary-color"
-                onClick={(e) => this.props.handleRemoveFromCart(e, item)}
+                onClick={() => props.handleRemoveFromCart(item)}
               >
                 X
-              </Button> */}
+              </Button> 
               </li>
             ))}
           </ul>
           Total:{" "}
           {util.formatCurrency(
-            props.cartItems.reduce((a, c) => a + c.price + c.count, 0)
+            props.cartItems.reduce((a, c) => a + c.price * c.count, 0)
           )}
         </div>
       )}
