@@ -5,26 +5,14 @@ import Products from "./Products";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CardDeck from "react-bootstrap/CardDeck";
 import Banner from "./Banner";
 import Filter from "./Filter";
 import Basket from "./Basket";
 
-function Home(props) {
+function Home() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [sortValue, setSortValue] = useState("ascending");
-  const [count, setCount] = useState(0);
-
-  function usePersistedState(key, defaultValue) {
-    const [state, setState] = React.useState(
-      JSON.parse(localStorage.getItem(key)) || defaultValue
-    );
-    useEffect(() => {
-      localStorage.setItem(key, JSON.stringify(state));
-    }, [key, state]);
-    return [state, setState];
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +25,28 @@ function Home(props) {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const storedCartItems = localStorage.cartItems;
+    if (storedCartItems) {
+      try {
+        const parsed = JSON.parse(storedCartItems);
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].id) {
+          setCartItems(parsed);
+          console.log(parsed, "we set the items from localstorage")
+        }
+      } catch(error) {
+        // we don't care
+      }
+    }
+    // localStorage.cartItems
+  }, []); // array is the list of things that should trigger the useEffect, if empty, then nothing should trigger it except first time
+
+useEffect(() => {
+  localStorage.cartItems = JSON.stringify(cartItems);
+  console.log("saved cart items")
+  //we are going to save the cart items here
+},[cartItems])
 
   const sortProducts = (list, sortValueToUse) => {
     let sorted = list;
@@ -63,31 +73,27 @@ function Home(props) {
   };
 
   const HandleAddToCart = (product) => {
-    let productAlreadyInCart = false;
-  
-    cartItems.forEach(item => {
-      if (product.id === item.id ) {
-        item.count += 1;
-        console.log(item.count)
-        productAlreadyInCart = true;
-      }
-    });
-
-    if (!productAlreadyInCart) {
+    const productInCart = cartItems.find((item) => item.id === product.id);
+    let newCartItems = [...cartItems]; //new array
+    if (productInCart) {
+      productInCart.count += 1;
+      console.log(productInCart.count, "product In cart count");
+    } else {
       const newCartItem = product;
       newCartItem.count = 1;
-      console.log(cartItems)
-    setCartItems(cartItems.concat(newCartItem));
-     
+      console.log(cartItems);
+      console.log(newCartItem.count, "new item count");
+      newCartItems = cartItems.concat(newCartItem);
     }
+    console.log("final assignment", newCartItems);
+    setCartItems(newCartItems);
   };
 
   const handleRemoveFromCart = (product) => {
-    const removedCartItems = cartItems.filter(a => a.id !== product.id);
+    const removedCartItems = cartItems.filter((a) => a.id !== product.id);
     setCartItems(removedCartItems);
-    console.log(removedCartItems, "removed item")
+    console.log(removedCartItems, "removed item");
   };
-
 
   return (
     <div>
@@ -109,14 +115,12 @@ function Home(props) {
               products={products}
               setProducts={setProducts}
               HandleAddToCart={HandleAddToCart}
-              
             />
           </Col>
 
           <Col>
             <Basket
               cartItems={cartItems}
-              // count={count}
               handleRemoveFromCart={handleRemoveFromCart}
             />
           </Col>
@@ -127,3 +131,12 @@ function Home(props) {
 }
 
 export default Home;
+
+//function supposed to be updating the page isn't running
+//console.log shows number of item is correct when added
+//however, cart is one step behind if it's same item
+
+// before we were mutating the old reference (e.g. let newCartItems = [cartItems];)
+// make an entire new copy of the state, and change that instead
+// react: thinks nothing changed cause reference is the same before creating a new copy
+//let newCartItems = [...cartItems]
