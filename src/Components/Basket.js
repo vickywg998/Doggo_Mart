@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import util from "../util";
 
 const Basket = (props) => {
-  console.log(props.cartItems, "from basket")
+
   return (
     <Alert variant="secondary">
       {props.cartItems.length === 0 ? (

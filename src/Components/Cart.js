@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import "../App.css";
-function Cart() {
+import React from "react";
+import Basket from "./Basket";
 
+const Cart = (props) => {
   return (
     <div>
-      <h1>Coming Soon!</h1>
+      <p>coming soon</p>
     </div>
   );
-}
+};
 
 export default Cart;

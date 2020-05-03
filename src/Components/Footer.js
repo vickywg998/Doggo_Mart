@@ -9,7 +9,6 @@ const footerStyle = {
   color: "#414b5a",
   padding: "10px 0px 10px 0px",
   fontSize: "14px",
-  // textAlign: "center",
   letterSpacing: "0.015em",
   position: "absolute",
   right: "0px",
@@ -47,11 +46,6 @@ const Footer = () => (
           <Icon name="instagram" />
           <Icon name="youtube square" />
         </Col>
-        {/* <Col>
-          <h5>FOR BRANDS AND AGENCIES</h5>
-          <p>Interested in showcasing your natural products to the Social Nature community? We can help!</p>
-          <Button color='pink'>Personal Inquiries</Button>
-        </Col> */}
         <Col>
           <h5>© Copyright 2020 Doggo.</h5>
         </Col>
