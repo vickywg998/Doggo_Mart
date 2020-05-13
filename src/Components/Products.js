@@ -23,14 +23,14 @@ function Products(props) {
         </Card.Title>
         <Card.Title>{product.title}</Card.Title>
         <Card.Text>
-          <Card.Title>
+       
             <Button
               className="button_primary-color pet-button"
               onClick={() => props.HandleAddToCart(product)}
             >
               <Icon name="add to cart" /> Add to cart
             </Button>
-          </Card.Title>
+       
         </Card.Text>
       </Card.Body>
     </Card>

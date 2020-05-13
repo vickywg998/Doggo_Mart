@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Products from "./Products";
@@ -8,10 +9,16 @@ import Col from "react-bootstrap/Col";
 import Banner from "./Banner";
 import Filter from "./Filter";
 import Basket from "./Basket";
+import Cart from "./Cart";
+
+import { useCartItems } from "./Hooks/useCartItems";
+import { useUpdateCartItems } from "./useUpdateCartItems";
 
 function Home() {
+  // const testCartItems = useCartItems();
+
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(useCartItems()); //setting the cartitems from the useCartITems hook (localstorage)
   const [sortValue, setSortValue] = useState("ascending");
 
   useEffect(() => {
@@ -24,21 +31,10 @@ function Home() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const storedCartItems = localStorage.cartItems;
-    if (storedCartItems) {
-      try {
-        const parsed = JSON.parse(storedCartItems);
-        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].id) {
-          setCartItems(parsed);
-        }
-      } catch (error) {}
-    }
-  }, []);
+  const myCartUpdatingFunction = useUpdateCartItems();
 
-  useEffect(() => {
-    localStorage.cartItems = JSON.stringify(cartItems);
-  }, [cartItems]);
+
+  // console.log(testCartItems, "this comes from usecartItems");
 
   const sortProducts = (list, sortValueToUse) => {
     let sorted = list;
@@ -50,6 +46,12 @@ function Home() {
     }
     return sorted;
   };
+
+  const updateCartItemsWithHook = (newCartItems) => {
+    setCartItems(newCartItems);
+    myCartUpdatingFunction(newCartItems);
+  };
+  //newCartItems can be any name, replacing updateCartItemsWithHook(newCartItems); & updateCartItemsWithHook(removedCartItems);
 
   const handleChangeSort = (e) => {
     const newSortValue = e.target.value;
@@ -68,12 +70,12 @@ function Home() {
       newCartItem.count = 1;
       newCartItems = cartItems.concat(newCartItem);
     }
-    setCartItems(newCartItems);
+    updateCartItemsWithHook(newCartItems);
   };
 
   const handleRemoveFromCart = (product) => {
     const removedCartItems = cartItems.filter((a) => a.id !== product.id);
-    setCartItems(removedCartItems);
+    updateCartItemsWithHook(removedCartItems);
   };
 
   return (
@@ -107,6 +109,15 @@ function Home() {
           </Col>
         </Row>
       </Container>
+      <Route
+        path="/cart"
+        render={() => (
+          <Cart
+            cartItems={cartItems}
+            handleRemoveFromCart={handleRemoveFromCart}
+          />
+        )}
+      />
     </div>
   );
 }
