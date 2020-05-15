@@ -6,10 +6,24 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import util from "../util";
+import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState(useCartItems());
   console.log(cartItems, "loading from cart.js");
+
+  const myCartUpdatingFunction = useUpdateCartItems();
+
+  const updateCartItemsWithHook = (newCartItems) => {
+    setCartItems(newCartItems);
+    myCartUpdatingFunction(newCartItems);
+  };
+
+  const handleRemoveFromCart = (product) => {
+    const removedCartItems = cartItems.filter((a) => a.id !== product.id);
+    updateCartItemsWithHook(removedCartItems);
+  };
+
   return (
     <Container>
       <Row>
@@ -36,31 +50,31 @@ const Cart = () => {
                   <div className="cart__line-item">
                     <div className="cart-item-content-container">
                       <div className="cart__product-image-container">
-                        <div className="cart__product-button">
-                          <img
-                            className="cart__img"
-                            src={`/products/${item.sku}.jpg`}
-                            alt={item.title}
-                          />
-                        </div>
+                        {/* <div className="cart__product-button"> */}
+                        <img
+                          className="cart__img"
+                          src={`/products/${item.sku}.jpg`}
+                          alt={item.title}
+                        />
+                        {/* </div> */}
                       </div>
                       <div className="cart__line-item-info-container">
-                    
-                          <div
+                        <div className="cart__line-item-info-heading">
+                          <span
                             key={item.id}
                             className="cart__line-item-info-title"
                           >
                             <b>{item.title}</b> X {item.count} = ${" "}
                             {item.price * item.count}
-                          </div>
-                          
+                          </span>
+
                           <Button
                             className="button_primary-color cart__line-item-x-button"
-                            // onClick={() => handleRemoveFromCart(item)}
+                            onClick={() => handleRemoveFromCart(item)}
                           >
                             X
                           </Button>
-                    
+                        </div>
                       </div>
                       {/* <div>
                         {" "}
@@ -86,8 +100,6 @@ const Cart = () => {
           </p>
         </Col>
       </Row>
-
-      {cartItems.length === 0 ? "Doggo Basket is empty" : <div></div>}
     </Container>
   );
 };

@@ -225,9 +225,14 @@ margin-top: 2em;
 
 }
 
+.cart__line-item-x-button {
+  margin-left: auto;
+}
+
+
 
 .cart__product-image-container {
-  width: 40%;
+  padding: 1em 3em 1em 1em;
 }
 
 
@@ -235,17 +240,21 @@ margin-top: 2em;
   font-size: 13px;
   line-height: 21.034px;
   color: #4c4c4b;
-  display: inline-block;
-  margin-right: 15px;
-  text-align: left;
+
 }
 
 .cart__line-item-info-container {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  padding-top: 2em;
+ 
 }
 
 .cart__img {
   width: 150px;
   height: 150px;
+}
+
+.cart__line-item-info-heading {
+  display: flex;
+  justify-content: space-between;
 }

@@ -12,10 +12,9 @@ import Basket from "./Basket";
 import Cart from "./Cart";
 
 import { useCartItems } from "./Hooks/useCartItems";
-import { useUpdateCartItems } from "./useUpdateCartItems";
+import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
 function Home() {
-  // const testCartItems = useCartItems();
 
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(useCartItems()); //setting the cartitems from the useCartITems hook (localstorage)
@@ -32,9 +31,6 @@ function Home() {
   }, []);
 
   const myCartUpdatingFunction = useUpdateCartItems();
-
-
-  // console.log(testCartItems, "this comes from usecartItems");
 
   const sortProducts = (list, sortValueToUse) => {
     let sorted = list;
