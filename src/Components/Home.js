@@ -14,11 +14,14 @@ import Cart from "./Cart";
 import { useCartItems } from "./Hooks/useCartItems";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
-function Home() {
+import { useFavItems } from "./Hooks/useFavItems";
+import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";
 
+function Home() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(useCartItems()); //setting the cartitems from the useCartITems hook (localstorage)
   const [sortValue, setSortValue] = useState("ascending");
+  const [favItems, setFavItems] = useState(useFavItems());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +34,7 @@ function Home() {
   }, []);
 
   const myCartUpdatingFunction = useUpdateCartItems();
+  const myFavUpdatingFunction = useUpdateFavItems();
 
   const sortProducts = (list, sortValueToUse) => {
     let sorted = list;
@@ -47,6 +51,11 @@ function Home() {
     setCartItems(newCartItems);
     myCartUpdatingFunction(newCartItems);
   };
+
+  const updateFavItemsWithHook = (newFavItems) => {
+    setFavItems(newFavItems);
+    myFavUpdatingFunction(newFavItems);
+  };
   //newCartItems can be any name, replacing updateCartItemsWithHook(newCartItems); & updateCartItemsWithHook(removedCartItems);
 
   const handleChangeSort = (e) => {
@@ -56,7 +65,7 @@ function Home() {
     setProducts(sorted);
   };
 
-  const HandleAddToCart = (product) => {
+  const handleAddToCart = (product) => {
     const productInCart = cartItems.find((item) => item.id === product.id);
     let newCartItems = [...cartItems];
     if (productInCart) {
@@ -72,6 +81,19 @@ function Home() {
   const handleRemoveFromCart = (product) => {
     const removedCartItems = cartItems.filter((a) => a.id !== product.id);
     updateCartItemsWithHook(removedCartItems);
+  };
+
+  const handleAddToFav = (favItem) => {
+    const productInFav = favItems.find((item) => item.id === favItem.id);
+    let newFavItems = [...favItems];
+    if (productInFav) {
+      productInFav.count += 1;
+    } else {
+      const newFavItem = favItem;
+      newFavItem.count = 1;
+      newFavItems = favItems.concat(newFavItem);
+    }
+    updateFavItemsWithHook(newFavItems);
   };
 
   return (
@@ -92,8 +114,11 @@ function Home() {
 
             <Products
               products={products}
+              favItems={favItems}
               setProducts={setProducts}
-              HandleAddToCart={HandleAddToCart}
+              setFavItems={setFavItems}
+              handleAddToCart={handleAddToCart}
+              handleAddToFav={handleAddToFav}
             />
           </Col>
 

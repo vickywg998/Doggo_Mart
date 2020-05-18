@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import util from "../util";
 import { Icon, Button } from "semantic-ui-react";
 
 
 function Products(props) {
+
+  console.log(props.favItems, "fav items from products")
   const productItems = props.products.map((product) => (
     <Card key={product.id}>
       <a
         href={`#${product.id}`}
-        onClick={(e) => props.HandleAddToCart(product.id)}
+        onClick={(e) => props.handleAddToCart(product.id)}
       >
         <Card.Img
           className="card-img-top"
@@ -23,14 +25,21 @@ function Products(props) {
         </Card.Title>
         <Card.Title>{product.title}</Card.Title>
         <Card.Text>
-       
+       <div className="product_card-container">
             <Button
               className="button_primary-color pet-button"
-              onClick={() => props.HandleAddToCart(product)}
+              onClick={() => props.handleAddToCart(product)}
             >
               <Icon name="add to cart" /> Add to cart
             </Button>
-       
+            
+            <Button
+              className="fav_button"
+              onClick={() => props.handleAddToFav(product)}
+            >
+              <Icon name="heart outline" size='large' /> 
+            </Button>
+            </div>
         </Card.Text>
       </Card.Body>
     </Card>

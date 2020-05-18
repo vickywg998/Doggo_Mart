@@ -4,6 +4,7 @@ import { useCartItems } from "./Hooks/useCartItems";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import util from "../util";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
@@ -90,14 +91,39 @@ const Cart = () => {
           </div>
         </Col>
 
-        <Col xs={3}>
-          <p>Order Summary</p>
-          <p>
-            Total:{" "}
-            {util.formatCurrency(
-              cartItems.reduce((a, c) => a + c.price * c.count, 0)
-            )}
-          </p>
+        <Col xs={4}>
+          <div className="order_summary_container">
+            <div id="order-details">
+              <Table className="order-summary">
+                <tbody>
+                  <tr>
+                    <th colSpan="2">Order Summary</th>
+                  </tr>
+
+                  <tr>
+                    <td> Total</td>
+                    <td>
+                      {util.formatCurrency(
+                        cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Shipping</td>
+                    <td>FREE</td>
+                  </tr>
+                  <tr className="order-summary__total">
+                    <td> Subtotal</td>
+                    <td>
+                      {util.formatCurrency(
+                        cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          </div>
         </Col>
       </Row>
     </Container>
