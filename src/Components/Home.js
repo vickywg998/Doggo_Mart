@@ -11,6 +11,7 @@ import Filter from "./Filter";
 import Basket from "./Basket";
 import Cart from "./Cart";
 
+
 import { useCartItems } from "./Hooks/useCartItems";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
@@ -85,12 +86,14 @@ function Home() {
 
   const handleAddToFav = (favItem) => {
     const productInFav = favItems.find((item) => item.id === favItem.id);
+
     let newFavItems = [...favItems];
     if (productInFav) {
-      productInFav.count += 1;
+      productInFav.favorited = "no";
+      newFavItems = favItems.filter((a) => a.id !== favItem.id);
     } else {
       const newFavItem = favItem;
-      newFavItem.count = 1;
+      newFavItem.favorited = "yes";
       newFavItems = favItems.concat(newFavItem);
     }
     updateFavItemsWithHook(newFavItems);

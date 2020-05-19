@@ -1,13 +1,11 @@
-
-
 import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import { Icon } from "semantic-ui-react";
 import { useFavItems } from "./Hooks/useFavItems";
 import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";
-
 
 const Favorite = () => {
   const [favItems, setFavItems] = useState(useFavItems());
@@ -18,6 +16,21 @@ const Favorite = () => {
   const updateFavItemsWithHook = (newFavItems) => {
     setFavItems(newFavItems);
     myFavUpdatingFunction(newFavItems);
+  };
+
+  const handleAddToFav = (favItem) => {
+    const productInFav = favItems.find((item) => item.id === favItem.id);
+
+    let newFavItems = [...favItems];
+    if (productInFav) {
+      productInFav.favorited = "no";
+      newFavItems = favItems.filter((a) => a.id !== favItem.id);
+    } else {
+      const newFavItem = favItem;
+      newFavItem.favorited = "yes";
+      newFavItems = favItems.concat(newFavItem);
+    }
+    updateFavItemsWithHook(newFavItems);
   };
 
   // const handleRemoveFromCart = (product) => {
@@ -33,7 +46,6 @@ const Favorite = () => {
             "You don't have any favorite doggos yet. Please give them some love <3"
           ) : (
             <h3>
-            
               Woohoo, you favorited {favItems.length} different{" "}
               {favItems.length > 1 ? "doggos" : "doggo"}! :)
             </h3>
@@ -59,18 +71,23 @@ const Favorite = () => {
                             key={item.id}
                             className="cart__line-item-info-title"
                           >
-                           information
+                            {item.title}
                           </span>
 
                           <Button
-                            className="button_primary-color cart__line-item-x-button"
-                            // onClick={() => handleRemoveFromCart(item)}
+                          className="button_primary-color"
+                            onClick={() => {
+                              handleAddToFav(item);
+                            }}
                           >
-                            X
+                            {item.favorited === "yes" ? (
+                            <p>remove</p>
+                            ) : (
+                              <Icon name="heart outline" size="large" />
+                            )}
                           </Button>
                         </div>
                       </div>
-               
                     </div>
                   </div>
                 ))}
@@ -78,13 +95,9 @@ const Favorite = () => {
             )}
           </div>
         </Col>
-
       </Row>
     </Container>
   );
 };
 
 export default Favorite;
-
-
-
