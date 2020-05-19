@@ -26,7 +26,7 @@ const Basket = (props) => {
               <li key={item.id}>
                 <b>{item.title}</b> X {item.count} = $ {item.price * item.count}
                 <Button
-                  className="button_primary-color"
+                  className="button_primary-color remove-button"
                   onClick={() => props.handleRemoveFromCart(item)}
                 >
                   X

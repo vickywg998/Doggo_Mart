@@ -27,7 +27,7 @@ const Cart = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="overall-page_height">
         <Col xs={7}>
           <Link to="/">
             <Button className="cart__page-left-title">
@@ -77,12 +77,6 @@ const Cart = () => {
                           </Button>
                         </div>
                       </div>
-                      {/* <div>
-                        {" "}
-                        <p className="cart__line-item-info-title">
-                          {item.description}
-                        </p>
-                      </div> */}
                     </div>
                   </div>
                 ))}

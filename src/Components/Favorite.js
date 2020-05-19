@@ -33,14 +33,9 @@ const Favorite = () => {
     updateFavItemsWithHook(newFavItems);
   };
 
-  // const handleRemoveFromCart = (product) => {
-  //   const removedCartItems = cartItems.filter((a) => a.id !== product.id);
-  //   updateCartItemsWithHook(removedCartItems);
-  // };
-
   return (
     <Container>
-      <Row>
+      <Row className="overall-page_height">
         <Col xs={9}>
           {favItems.length === 0 ? (
             "You don't have any favorite doggos yet. Please give them some love <3"
@@ -57,13 +52,11 @@ const Favorite = () => {
                   <div className="cart__line-item">
                     <div className="cart-item-content-container">
                       <div className="cart__product-image-container">
-                        {/* <div className="cart__product-button"> */}
                         <img
                           className="cart__img"
                           src={`/products/${item.sku}.jpg`}
                           alt={item.title}
                         />
-                        {/* </div> */}
                       </div>
                       <div className="cart__line-item-info-container">
                         <div className="cart__line-item-info-heading">

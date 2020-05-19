@@ -123,10 +123,14 @@ nav {
   display: flex;
 }
 
+.remove-button {
+  margin-left: 10px;
+}
 .fav_button {
 background-color: white !important;
 padding: 0 !important;
 }
+
 
 
 .homepage-result {
@@ -271,6 +275,11 @@ margin-top: 2em;
 .cart__line-item-info-heading {
   display: flex;
   justify-content: space-between;
+}
+
+.overall-page_height {
+  min-height: 700px;
+  margin-top: 50px;
 }
 
 /* cart page summary */ 
