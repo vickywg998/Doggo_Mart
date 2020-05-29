@@ -11,6 +11,16 @@ const Filter = (props) => {
           <option value="ascending">Lowest to Highest</option>
           <option value="descending">Highest to Lowest</option>
         </select>
+        <label>Filter by Size: </label>
+        <select value={props.filterValue} onChange={props.handleChangeSize}>
+          <option value="">All</option>
+          <option value="xs">XS</option>
+          <option value="s">S</option>
+          <option value="m">M</option>
+          <option value="l">L</option>
+          <option value="xl">XL</option>
+          <option value="xxl">XXL</option>
+        </select>
       </Col>
       <Col md={4}>{props.count} doggos found.</Col>
     </Row>

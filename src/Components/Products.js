@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import util from "../util";
 import { Icon, Button, Item } from "semantic-ui-react";
@@ -25,8 +25,9 @@ function Products(props) {
           <b>{util.formatCurrency(product.price)}</b>
         </Card.Title>
         <Card.Title>{product.title}</Card.Title>
-        <Card.Text>
+      
           <div className="product_card-container">
+          <Card.Text>
             <Button
               className="button_primary-color pet-button"
               onClick={() => props.handleAddToCart(product)}
@@ -34,9 +35,6 @@ function Products(props) {
               <Icon name="add to cart" /> Add to cart
             </Button>
 
-            {/* {props.favItems.id === product.id? <p>hi</p> : 
-              
-            } */}
             <Button
               className="fav_button"
               onClick={() => {
@@ -49,8 +47,9 @@ function Products(props) {
                 <Icon name="heart outline" size="large" />
               )}
             </Button>
+            </Card.Text>
           </div>
-        </Card.Text>
+   
       </Card.Body>
     </Card>
   ));

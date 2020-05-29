@@ -22,6 +22,7 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(useCartItems()); //setting the cartitems from the useCartITems hook (localstorage)
   const [sortValue, setSortValue] = useState("ascending");
+  const [filterValue, setFilterValue] = useState("");
   const [favItems, setFavItems] = useState(useFavItems());
 
   useEffect(() => {
@@ -65,6 +66,21 @@ function Home() {
     const sorted = sortProducts(products, newSortValue);
     setProducts(sorted);
   };
+
+
+  const handleChangeSize = (e) => {
+    const newFilterValue = e.target.value;
+    setFilterValue(newFilterValue);
+    console.log('newFilterValue', newFilterValue)
+
+    const filtered = products.filter((item) => item.availableSizes.indexOf(newFilterValue.toUpperCase()) >= 0)
+    setProducts(products, filtered); // works in the console but doesn't show filtered products 
+    // setProducts(filtered); // filters the actual product list, only displays filtered (second time) prodcuts that also have the same size available, not accurate
+
+    console.log('filtered products', filtered);
+    console.log('products', products)
+
+  }
 
   const handleAddToCart = (product) => {
     const productInCart = cartItems.find((item) => item.id === product.id);
@@ -110,6 +126,8 @@ function Home() {
             <Filter
               sortValue={sortValue}
               handleChangeSort={handleChangeSort}
+              filterValue={filterValue}
+              handleChangeSize={handleChangeSize}
               count={products.length}
             />
 

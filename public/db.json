@@ -5,7 +5,7 @@
         "sku": 584029384930293,
         "title": "Millie",
         "description": "Cute doggo 1",
-        "availableSizes": ["X", "L", "XL", "XXL"],
+        "availableSizes": ["XS", "L", "XL", "XXL"],
         "price": 10,
         "isFreeShipping": true
       },
@@ -15,7 +15,7 @@
         "sku": 11854078013954528,
         "title": "Ollie",
         "description": "Cute doggo 2",
-        "availableSizes": ["X", "M", "L"],
+        "availableSizes": ["XS", "S", "L"],
         "price": 14.999999,
         "isFreeShipping": true
       },
@@ -25,7 +25,7 @@
         "sku": 876661122392077,
         "title": "Ernie",
         "description": "Cute doggo 3",
-        "availableSizes": ["X", "M", "L"],
+        "availableSizes": ["XS", "M", "L"],
         "price": 14.9,
         "isFreeShipping": true
       },
@@ -45,7 +45,7 @@
         "sku": 10547961582846888,
         "title": "Cheerio",
         "description": "Cute doggos 5",
-        "availableSizes": ["X", "L", "XL"],
+        "availableSizes": ["XS", "L", "XL"],
         "price": 10.9,
         "isFreeShipping": false
       },
@@ -65,7 +65,7 @@
         "sku": 18532669286405342,
         "title": "Pepper",
         "description": "Cute doggo 7",
-        "availableSizes": ["S"],
+        "availableSizes": ["XS", "L"],
         "style": "Preto com listras brancas",
         "price": 22.5,
         "isFreeShipping": true
@@ -86,7 +86,7 @@
         "sku": 11600983276356165,
         "title": "Jasper",
         "description": "Cute doggo 9",
-        "availableSizes": ["L", "XL"],
+        "availableSizes": ["M", "L", "XL"],
         "price": 145.2,
         "isFreeShipping": true
       },
@@ -95,7 +95,7 @@
         "sku": 11600983276356150,
         "title": "Bailey",
         "description": "Cute doggo 10",
-        "availableSizes": ["L", "XL"],
+        "availableSizes": ["S", "L", "XL"],
         "price": 204.9,
         "isFreeShipping": true
       },
@@ -104,7 +104,7 @@
         "sku": 1864411584791312,
         "title": "Logan",
         "description": "Cute doggo 11",
-        "availableSizes": ["X", "L", "XL", "XXL"],
+        "availableSizes": ["XS", "S", "XL", "XXL"],
         "price": 89.2,
         "isFreeShipping": true
       },
@@ -114,7 +114,7 @@
         "sku": 11856874013954528,
         "title": "Bella",
         "description": "Cute doggo 12",
-        "availableSizes": ["X", "M", "L"],
+        "availableSizes": ["XS", "M", "L"],
         "price": 56.9,
         "isFreeShipping": true
       },
@@ -124,7 +124,7 @@
         "sku": 87666112234612,
         "title": "Daisy",
         "description": "Cute doggo 13",
-        "availableSizes": ["X", "M", "L"],
+        "availableSizes": ["XS", "M", "L"],
         "price": 82.2,
         "isFreeShipping": true
       },
@@ -144,7 +144,7 @@
         "sku": 10547961582823760,
         "title": "Jack",
         "description": "Cute doggo 15",
-        "availableSizes": ["X", "L", "XL"],
+        "availableSizes": ["XS", "L", "XL"],
         "price": 84.4,
         "isFreeShipping": false
       },
@@ -154,7 +154,7 @@
         "sku": 3085384789343891,
         "title": "Max",
         "description": "Cute doggo 16",
-        "availableSizes": ["XL", "XXL"],
+        "availableSizes": ["S", "XL", "XXL"],
         "price": 50.2,
         "isFreeShipping": false
       },
@@ -164,7 +164,7 @@
         "sku": 1853266928644682,
         "title": "Charlie",
         "description": "Cute doggo 17",
-        "availableSizes": ["S"],
+        "availableSizes": ["S", "M", "L"],
         "style": "Preto com listras brancas",
         "price": 69.4,
         "isFreeShipping": true
@@ -185,7 +185,7 @@
         "sku": 4958304958493049,
         "title": "Frankie",
         "description": "Cute doggo 19",
-        "availableSizes": ["L", "XL"],
+        "availableSizes": ["M", "L"],
         "price": 134.9,
         "isFreeShipping": true
       },
@@ -194,7 +194,7 @@
         "sku": 11649883276356150,
         "title": "Willow",
         "description": "Cute doggo 20",
-        "availableSizes": ["L", "XL"],
+        "availableSizes": ["XS", "S"],
         "price": 136.9,
         "isFreeShipping": true
       }
