@@ -5,7 +5,7 @@ const Searchbar = (props) => {
   return (
     <Search 
     value={props.search}
-    onChange={e => props.handleChangeSearch(e.target.value)}
+    onChange={e => props.handleChangeSearch()}
     type="text"
       />
   );
