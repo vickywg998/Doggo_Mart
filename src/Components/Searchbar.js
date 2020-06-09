@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Search } from "semantic-ui-react";
 
 const Searchbar = (props) => {
