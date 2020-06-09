@@ -3,6 +3,8 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 
+// import Searchbar from "./Searchbar";
+
 function Nav() {
 
     const navStyle = {
@@ -22,6 +24,7 @@ function Nav() {
         <Link style={navStyle} to ='/cart'>
           <li>Shopping Cart &nbsp;<Icon name='add to cart' size="small"/></li>
         </Link>
+        {/* <li><Searchbar /></li> */}
       </ul>
     </nav>
   );

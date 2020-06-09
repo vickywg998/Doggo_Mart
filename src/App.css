@@ -120,6 +120,7 @@ nav {
 
 .pet-button {
   margin-top: 10px !important;
+  margin-right: 0.75em !important;
   display: flex;
 }
 
@@ -186,6 +187,14 @@ margin-top: 2em;
   flex-direction: row;
   justify-content: space-between;
 
+}
+
+
+
+.basket_list-padding {
+  padding-bottom: 1em;
+  display: flex;
+justify-content: space-between;
 }
 
 /* cart page checkout */ 

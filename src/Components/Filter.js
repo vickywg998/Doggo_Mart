@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -11,6 +11,8 @@ const Filter = (props) => {
           <option value="ascending">Lowest to Highest</option>
           <option value="descending">Highest to Lowest</option>
         </select>
+        </Col>
+        <Col md={4}>
         <label>Filter by Size: </label>
         <select value={props.filterValue} onChange={props.handleChangeSize}>
           <option value="">All</option>

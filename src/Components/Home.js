@@ -3,14 +3,12 @@ import { Route } from "react-router-dom";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Products from "./Products";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import Banner from "./Banner";
 import Filter from "./Filter";
 import Basket from "./Basket";
 import Cart from "./Cart";
-
+import Searchbar from "./Searchbar";
 
 import { useCartItems } from "./Hooks/useCartItems";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
@@ -20,34 +18,24 @@ import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState(useCartItems()); //setting the cartitems from the useCartITems hook (localstorage)
+  const [cartItems, setCartItems] = useState(useCartItems());
   const [sortValue, setSortValue] = useState("ascending");
   const [filterValue, setFilterValue] = useState("");
   const [favItems, setFavItems] = useState(useFavItems());
+  const [search, setSearch] = useState("hi");
+
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("http://localhost:8000/products");
-      const unsortedProducts = await res.json();
-      const sorted = sortProducts(unsortedProducts, sortValue);
-      setProducts(sorted);
+      const allProducts = await res.json();
+      setProducts(allProducts);
     };
     fetchData();
   }, []);
 
   const myCartUpdatingFunction = useUpdateCartItems();
   const myFavUpdatingFunction = useUpdateFavItems();
-
-  const sortProducts = (list, sortValueToUse) => {
-    let sorted = list;
-    if (sortValueToUse === "ascending") {
-      sorted = list.sort((a, b) => a.price - b.price);
-    }
-    if (sortValueToUse === "descending") {
-      sorted = list.sort((a, b) => b.price - a.price);
-    }
-    return sorted;
-  };
 
   const updateCartItemsWithHook = (newCartItems) => {
     setCartItems(newCartItems);
@@ -63,24 +51,19 @@ function Home() {
   const handleChangeSort = (e) => {
     const newSortValue = e.target.value;
     setSortValue(newSortValue);
-    const sorted = sortProducts(products, newSortValue);
-    setProducts(sorted);
   };
-
 
   const handleChangeSize = (e) => {
     const newFilterValue = e.target.value;
     setFilterValue(newFilterValue);
-    console.log('newFilterValue', newFilterValue)
+  };
 
-    const filtered = products.filter((item) => item.availableSizes.indexOf(newFilterValue.toUpperCase()) >= 0)
-    setProducts(products, filtered); // works in the console but doesn't show filtered products 
-    // setProducts(filtered); // filters the actual product list, only displays filtered (second time) prodcuts that also have the same size available, not accurate
+  const handleChangeSearch = (e) => {
+    const newSearchValue = e.target.value;
+    setSearch(newSearchValue);
+    console.log("newSearchValue", newSearchValue);
+  };
 
-    console.log('filtered products', filtered);
-    console.log('products', products)
-
-  }
 
   const handleAddToCart = (product) => {
     const productInCart = cartItems.find((item) => item.id === product.id);
@@ -115,10 +98,28 @@ function Home() {
     updateFavItemsWithHook(newFavItems);
   };
 
+  // const getSearchResults = (products, search) => {
+  //   return search
+  //     ? products.filter(item => {
+  //       return item.toLowerCase().includes(search.toLowerCase());
+  //     })
+  //     : products;
+  // };
+
+
+  const sorted = sortProducts(products, sortValue);
+  const filtered = getFilteredProducts(sorted, filterValue);
+
+
   return (
     <div>
       <Banner />
       <Container>
+        <Row>
+          <Col md={{ span: 4, offset: 9 }}>
+            <Searchbar handleChangeSearch={handleChangeSearch} search={search}/>
+          </Col>
+        </Row>
         <h1 className="homepage-title">Meet the World's Cutest Doggos</h1>
 
         <Row>
@@ -128,15 +129,14 @@ function Home() {
               handleChangeSort={handleChangeSort}
               filterValue={filterValue}
               handleChangeSize={handleChangeSize}
-              count={products.length}
+              count={filtered.length}
             />
 
             <hr />
 
             <Products
-              products={products}
+              products={filtered}
               favItems={favItems}
-              setProducts={setProducts}
               setFavItems={setFavItems}
               handleAddToCart={handleAddToCart}
               handleAddToFav={handleAddToFav}
@@ -163,5 +163,24 @@ function Home() {
     </div>
   );
 }
+
+const sortProducts = (list, sortValueToUse) => {
+  let sorted = list;
+  if (sortValueToUse === "ascending") {
+    sorted = list.sort((a, b) => a.price - b.price);
+  }
+  if (sortValueToUse === "descending") {
+    sorted = list.sort((a, b) => b.price - a.price);
+  }
+  return sorted;
+};
+
+const getFilteredProducts = (products, filterValue) => {
+  return filterValue
+    ? products.filter(
+        (item) => item.availableSizes.indexOf(filterValue.toUpperCase()) >= 0
+      )
+    : products;
+};
 
 export default Home;
