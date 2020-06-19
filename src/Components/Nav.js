@@ -24,7 +24,6 @@ function Nav() {
         <Link style={navStyle} to ='/cart'>
           <li>Shopping Cart &nbsp;<Icon name='add to cart' size="small"/></li>
         </Link>
-        {/* <li><Searchbar /></li> */}
       </ul>
     </nav>
   );

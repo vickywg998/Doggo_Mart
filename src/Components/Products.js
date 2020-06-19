@@ -1,32 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import util from "../util";
-import { Icon, Button, Item } from "semantic-ui-react";
+import { Icon, Button } from "semantic-ui-react";
 
 function Products(props) {
-
   console.log(props.favItems, "fav items from products");
 
   const productItems = props.products.map((product) => (
-
     <Card key={product.id}>
-      <a
-        href={`#${product.id}`}
-        onClick={(e) => props.handleAddToCart(product.id)}
-      >
+      <Link to={`/doggo/${product.id}`}>
         <Card.Img
           className="card-img-top"
           src={`/products/${product.sku}.jpg`}
           alt={product.title}
         />
-      </a>
+      </Link>
       <Card.Body>
         <Card.Title>
           <b>{util.formatCurrency(product.price)}</b>
         </Card.Title>
         <Card.Title>{product.title}</Card.Title>
-      
-          <div className="product_card-container">
+
+        <div className="product_card-container">
           <Card.Text>
             <Button
               className="button_primary-color pet-button"
@@ -47,9 +43,8 @@ function Products(props) {
                 <Icon name="heart outline" size="large" />
               )}
             </Button>
-            </Card.Text>
-          </div>
-   
+          </Card.Text>
+        </div>
       </Card.Body>
     </Card>
   ));

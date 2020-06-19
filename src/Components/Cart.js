@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartItems } from "./Hooks/useCartItems";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+import {Row, Col, Container, Table, Button } from "react-bootstrap";
 import util from "../util";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 

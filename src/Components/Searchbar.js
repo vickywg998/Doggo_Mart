@@ -1,12 +1,15 @@
 import React from "react";
-import { Search } from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
 
 const Searchbar = (props) => {
   return (
-    <Search 
+    <Input
     value={props.search}
-    onChange={e => props.handleChangeSearch()}
+    action={{ icon: 'search' }}
+    placeholder='Search...' 
+    onChange={e => props.handleChangeSearch(e)}
     type="text"
+
       />
   );
 };

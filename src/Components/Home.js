@@ -22,7 +22,7 @@ function Home() {
   const [sortValue, setSortValue] = useState("ascending");
   const [filterValue, setFilterValue] = useState("");
   const [favItems, setFavItems] = useState(useFavItems());
-  const [search, setSearch] = useState("hi");
+  const [search, setSearch] = useState("");
 
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function Home() {
   const handleChangeSearch = (e) => {
     const newSearchValue = e.target.value;
     setSearch(newSearchValue);
-    console.log("newSearchValue", newSearchValue);
+    // console.log("newSearchValue", newSearchValue);
   };
 
 
@@ -98,18 +98,9 @@ function Home() {
     updateFavItemsWithHook(newFavItems);
   };
 
-  // const getSearchResults = (products, search) => {
-  //   return search
-  //     ? products.filter(item => {
-  //       return item.toLowerCase().includes(search.toLowerCase());
-  //     })
-  //     : products;
-  // };
-
-
-  const sorted = sortProducts(products, sortValue);
+  const searched = getSearchResults(products, search);
+  const sorted = sortProducts(searched, sortValue);
   const filtered = getFilteredProducts(sorted, filterValue);
-
 
   return (
     <div>
@@ -182,5 +173,40 @@ const getFilteredProducts = (products, filterValue) => {
       )
     : products;
 };
+
+const getSearchResults = (products, search) => {
+  return search
+    ? products.filter(item => {
+      return item.title.toLowerCase().includes(search.toLowerCase());
+    })
+    : products;
+};
+
+// const sortProducts = (list, sortValueToUse) => {
+//   let sorted = list;
+//   if (sortValueToUse === "ascending") {
+//     sorted = list.sort((a, b) => a.price - b.price);
+//   }
+//   if (sortValueToUse === "descending") {
+//     sorted = list.sort((a, b) => b.price - a.price);
+//   }
+//   return sorted;
+// };
+
+// const getFilteredProducts = (products, filterValue) => {
+//   return filterValue
+//     ? products.filter(
+//         (item) => item.availableSizes.indexOf(filterValue.toUpperCase()) >= 0
+//       )
+//     : products;
+// };
+
+// const getSearchResults = (products, search) => {
+//   return search
+//     ? products.filter(item => {
+//       return item.title.toLowerCase().includes(search.toLowerCase());
+//     })
+//     : products;
+// };
 
 export default Home;
