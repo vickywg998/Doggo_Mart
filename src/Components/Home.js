@@ -15,6 +15,7 @@ import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
 import { useFavItems } from "./Hooks/useFavItems";
 import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";
+import fp from 'lodash/fp';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,6 @@ function Home() {
   const [filterValue, setFilterValue] = useState("");
   const [favItems, setFavItems] = useState(useFavItems());
   const [search, setSearch] = useState("");
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,9 +98,13 @@ function Home() {
     updateFavItemsWithHook(newFavItems);
   };
 
-  const searched = getSearchResults(products, search);
-  const sorted = sortProducts(searched, sortValue);
-  const filtered = getFilteredProducts(sorted, filterValue);
+  const composed = fp.compose(
+    fp.orderBy("price", sortValue === "ascending" ? "asc" : "desc"),
+    fp.filter(item => filterValue ? (item.availableSizes.indexOf(filterValue.toUpperCase()) >= 0) : true),
+    fp.filter(item =>  search ? (item.title.toLowerCase().includes(search.toLowerCase())) : true)
+  );
+
+  const results = composed(products);
 
   return (
     <div>
@@ -120,13 +124,13 @@ function Home() {
               handleChangeSort={handleChangeSort}
               filterValue={filterValue}
               handleChangeSize={handleChangeSize}
-              count={filtered.length}
+              count={results.length}
             />
 
             <hr />
 
             <Products
-              products={filtered}
+              products={results}
               favItems={favItems}
               setFavItems={setFavItems}
               handleAddToCart={handleAddToCart}
@@ -154,59 +158,5 @@ function Home() {
     </div>
   );
 }
-
-const sortProducts = (list, sortValueToUse) => {
-  let sorted = list;
-  if (sortValueToUse === "ascending") {
-    sorted = list.sort((a, b) => a.price - b.price);
-  }
-  if (sortValueToUse === "descending") {
-    sorted = list.sort((a, b) => b.price - a.price);
-  }
-  return sorted;
-};
-
-const getFilteredProducts = (products, filterValue) => {
-  return filterValue
-    ? products.filter(
-        (item) => item.availableSizes.indexOf(filterValue.toUpperCase()) >= 0
-      )
-    : products;
-};
-
-const getSearchResults = (products, search) => {
-  return search
-    ? products.filter(item => {
-      return item.title.toLowerCase().includes(search.toLowerCase());
-    })
-    : products;
-};
-
-// const sortProducts = (list, sortValueToUse) => {
-//   let sorted = list;
-//   if (sortValueToUse === "ascending") {
-//     sorted = list.sort((a, b) => a.price - b.price);
-//   }
-//   if (sortValueToUse === "descending") {
-//     sorted = list.sort((a, b) => b.price - a.price);
-//   }
-//   return sorted;
-// };
-
-// const getFilteredProducts = (products, filterValue) => {
-//   return filterValue
-//     ? products.filter(
-//         (item) => item.availableSizes.indexOf(filterValue.toUpperCase()) >= 0
-//       )
-//     : products;
-// };
-
-// const getSearchResults = (products, search) => {
-//   return search
-//     ? products.filter(item => {
-//       return item.title.toLowerCase().includes(search.toLowerCase());
-//     })
-//     : products;
-// };
 
 export default Home;
