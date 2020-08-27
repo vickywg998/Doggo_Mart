@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/Doggo_Mart" exact component={Home} />
           <Route path="/cart" component={Cart} />
           <Route path="/favorite" component={Favorite} />
         </Switch>

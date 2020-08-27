@@ -14,7 +14,7 @@ function Product(props) {
       <Card key={product.id}>
         <Card.Img
           className="card-img-top"
-          src={`/products/${product.sku}.jpg`}
+          src={`${process.env.PUBLIC_URL}/products/${product.sku}.jpg`}
           alt={product.title}
           onClick={() => {
             setModalShow(true);
