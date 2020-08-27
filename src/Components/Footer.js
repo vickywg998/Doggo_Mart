@@ -18,11 +18,10 @@ const Footer = () => (
     <Container>
       <Row>
         <Col>
-          <h5>COMPANY</h5>
+          <h5>Doggo INC.</h5>
           <ul>
             <li>Our Story</li>
             <li>Our Team</li>
-            <li>Our Careers</li>
             <li>Contact Us</li>
             <li>Privacy Policy</li>
             <li>Terms of Services</li>
@@ -45,7 +44,7 @@ const Footer = () => (
           <Icon name="youtube square" />
         </Col>
         <Col>
-          <h5>© Copyright 2020 Doggo.</h5>
+          <h5>© Created by Vicky W <Icon name="heart" size="small"/></h5>
         </Col>
       </Row>
     </Container>

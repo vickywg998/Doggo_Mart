@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
+import {Row, Col, Container, Button} from "react-bootstrap";
 import { Icon } from "semantic-ui-react";
 import { useFavItems } from "./Hooks/useFavItems";
 import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";

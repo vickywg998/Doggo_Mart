@@ -23,7 +23,7 @@ const Basket = (props) => {
           <ul className="basket_list">
             {props.cartItems.map((item) => (
               <li key={item.id} className="basket_list-padding">
-                <span><b>{item.title}</b> X {item.count} = $ {item.price * item.count}</span>
+                <span><b>{item.title}</b> X {item.count} = $ {util.formatCurrency(item.price * item.count)}</span>
                 <Button
                   className="button_primary-color remove-button"
                   onClick={() => props.handleRemoveFromCart(item)}

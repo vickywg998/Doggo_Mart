@@ -1,0 +1,202 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "sku": 584029384930293,
+        "title": "Millie",
+        "description": "Cute doggo 1",
+        "availableSizes": ["XS", "L", "XL", "XXL"],
+        "price": 10,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 2,
+        "sku": 11854078013954528,
+        "title": "Ollie",
+        "description": "Cute doggo 2",
+        "availableSizes": ["XS", "S", "L"],
+        "price": 14.999999,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 3,
+        "sku": 876661122392077,
+        "title": "Ernie",
+        "description": "Cute doggo 3",
+        "availableSizes": ["XS", "M", "L"],
+        "price": 14.9,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 4,
+        "sku": 9197907543445677,
+        "title": "Bean",
+        "description": "Cute doggo 4",
+        "availableSizes": ["XL"],
+        "price": 25.9,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 5,
+        "sku": 10547961582846888,
+        "title": "Cheerio",
+        "description": "Cute doggos 5",
+        "availableSizes": ["XS", "L", "XL"],
+        "price": 10.9,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 6,
+        "sku": 6090484789343891,
+        "title": "Sandy",
+        "description": "Cute doggo 6",
+        "availableSizes": ["XL", "XXL"],
+        "price": 49.9,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 7,
+        "sku": 18532669286405342,
+        "title": "Pepper",
+        "description": "Cute doggo 7",
+        "availableSizes": ["XS", "L"],
+        "style": "Preto com listras brancas",
+        "price": 22.5,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 8,
+        "sku": 5619496040738316,
+        "title": "Peanut",
+        "description": "Cute doggo 8",
+        "availableSizes": ["XL"],
+        "style": "Azul escuro",
+        "price": 18.7,
+        "isFreeShipping": false
+      },
+      {
+        "id": 9,
+        "sku": 11600983276356165,
+        "title": "Jasper",
+        "description": "Cute doggo 9",
+        "availableSizes": ["M", "L", "XL"],
+        "price": 145.2,
+        "isFreeShipping": true
+      },
+      {
+        "id": 10,
+        "sku": 11600983276356150,
+        "title": "Bailey",
+        "description": "Cute doggo 10",
+        "availableSizes": ["S", "L", "XL"],
+        "price": 204.9,
+        "isFreeShipping": true
+      },
+      {
+        "id": 11,
+        "sku": 1864411584791312,
+        "title": "Logan",
+        "description": "Cute doggo 11",
+        "availableSizes": ["XS", "S", "XL", "XXL"],
+        "price": 89.2,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 12,
+        "sku": 11856874013954528,
+        "title": "Bella",
+        "description": "Cute doggo 12",
+        "availableSizes": ["XS", "M", "L"],
+        "price": 56.9,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 13,
+        "sku": 87666112234612,
+        "title": "Daisy",
+        "description": "Cute doggo 13",
+        "availableSizes": ["XS", "M", "L"],
+        "price": 82.2,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 14,
+        "sku": 584029384930293,
+        "title": "Teddy",
+        "description": "Cute doggo 14",
+        "availableSizes": ["XL"],
+        "price": 43.7,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 15,
+        "sku": 10547961582823760,
+        "title": "Jack",
+        "description": "Cute doggo 15",
+        "availableSizes": ["XS", "L", "XL"],
+        "price": 84.4,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 16,
+        "sku": 3085384789343891,
+        "title": "Max",
+        "description": "Cute doggo 16",
+        "availableSizes": ["S", "XL", "XXL"],
+        "price": 50.2,
+        "isFreeShipping": false
+      },
+  
+      {
+        "id": 17,
+        "sku": 1853266928644682,
+        "title": "Charlie",
+        "description": "Cute doggo 17",
+        "availableSizes": ["S", "M", "L"],
+        "style": "Preto com listras brancas",
+        "price": 69.4,
+        "isFreeShipping": true
+      },
+  
+      {
+        "id": 18,
+        "sku": 8536496040738316,
+        "title": "Lucy",
+        "description": "Cute doggo 18",
+        "availableSizes": ["XL"],
+        "style": "Azul escuro",
+        "price": 180.6,
+        "isFreeShipping": false
+      },
+      {
+        "id": 19,
+        "sku": 4958304958493049,
+        "title": "Frankie",
+        "description": "Cute doggo 19",
+        "availableSizes": ["M", "L"],
+        "price": 134.9,
+        "isFreeShipping": true
+      },
+      {
+        "id": 20,
+        "sku": 11649883276356150,
+        "title": "Willow",
+        "description": "Cute doggo 20",
+        "availableSizes": ["XS", "S"],
+        "price": 136.9,
+        "isFreeShipping": true
+      }
+    ]
+  }

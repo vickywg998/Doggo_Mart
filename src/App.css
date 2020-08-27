@@ -1,4 +1,8 @@
-h1,h2,h3,h4,h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: "Acme", sans-serif;
 }
 
@@ -46,7 +50,7 @@ nav {
 
 .nav-links a:hover {
   background-color: palevioletred;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .homepage-title {
@@ -82,15 +86,12 @@ nav {
   box-shadow: 5px 8px rgb(221, 143, 166);
 }
 
-
 .card-deck {
   margin-top: 5em;
 }
 .card-deck .card {
   margin-bottom: 4em;
 }
-
-
 
 /* banner sizing */
 
@@ -112,9 +113,8 @@ nav {
   padding: 40px;
 }
 
-
 .button_primary-color {
-  background-color:  rgb(183, 164, 207) !important;
+  background-color: rgb(183, 164, 207) !important;
   border: none !important;
 }
 
@@ -128,17 +128,13 @@ nav {
   margin-left: 10px;
 }
 .fav_button {
-background-color: white !important;
-padding: 0 !important;
+  background-color: white !important;
+  padding: 0 !important;
 }
-
-
 
 .homepage-result {
-margin-top: 2em;
+  margin-top: 2em;
 }
-
-
 
 /*infinite scroll */
 
@@ -148,7 +144,6 @@ margin-top: 2em;
   height: 200px;
   background-size: cover;
 }
-
 
 #block {
   width: 100%;
@@ -166,38 +161,35 @@ margin-top: 2em;
   .card-deck {
     margin-right: -8em;
     margin-left: 0;
-}
-.card-deck .card {
-  margin-right: 0;
-  margin-left: 0;
-}
+  }
+  .card-deck .card {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 .card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-flow: row wrap;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-flow: row wrap;
 }
 
 .product_card-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
-
-
 
 .basket_list-padding {
   padding-bottom: 1em;
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
-/* cart page checkout */ 
+/* cart page checkout */
 
 .cart__page-left-title {
   font-size: 12px;
@@ -213,12 +205,12 @@ justify-content: space-between;
 
 .cart__page-left-title:hover {
   background-color: white;
-  color:#808284;
+  color: #808284;
 }
 
 .cart__page-left-title:active {
   background-color: white;
-  color:#808284;
+  color: #808284;
 }
 
 .cart__line-item {
@@ -234,13 +226,10 @@ justify-content: space-between;
   overflow-y: auto;
   border-top: 1px solid #dfe0e1;
   background-color: #fff;
- 
 }
-
 
 .cart-item-content-container {
   display: flex;
-
 }
 
 .cart__product-button {
@@ -249,36 +238,31 @@ justify-content: space-between;
   display: block;
   margin: 0;
   padding: 0;
-
 }
 
 .cart__line-item-x-button {
   margin-left: auto;
 }
 
-
-
 .cart__product-image-container {
   padding: 1em 3em 1em 1em;
 }
-
 
 .cart__line-item-info-title {
   font-size: 13px;
   line-height: 21.034px;
   color: #4c4c4b;
-
 }
 
 .cart__line-item-info-container {
   width: 100%;
   padding-top: 2em;
- 
 }
 
 .cart__img {
   width: 150px;
   height: 150px;
+  border-radius: 8px;
 }
 
 .cart__line-item-info-heading {
@@ -291,7 +275,7 @@ justify-content: space-between;
   margin-top: 50px;
 }
 
-/* cart page summary */ 
+/* cart page summary */
 
 .order_summary_container {
   width: 250px;
@@ -331,3 +315,73 @@ justify-content: space-between;
   font-weight: 600;
 }
 
+select {
+  border: solid rgb(255, 255, 255) 1px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* mobile responsive */
+
+@media only screen and (max-width: 600px) {
+  .nav-links li > span {
+    display: none;
+  }
+
+  nav > ul {
+    padding: 10px 0 0 0;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+  .banner-content {
+    padding: 25px;
+    text-align: center;
+  }
+  .banner-content p {
+    font-size: 0.8rem;
+    padding-top: 10px;
+  }
+  .banner-sizing {
+    margin-bottom: 25px;
+  }
+  .homepage-title {
+    font-size: 1.8rem;
+    padding-top: 15px;
+    text-align: center;
+  }
+  .ui.input > input {
+    min-width: 250px;
+  }
+
+  .card-img-top {
+    height: 200px;
+  }
+  #list .card {
+    width: 200px;
+  }
+
+  #list {
+    grid-gap: 0px;
+  }
+  .overall-page_height .col-7, .overall-page_height .col-9 {
+    max-width: 100%;
+  }
+  .overall-page_height .col-4 {
+    max-width: none;
+  }
+  .cart__line-item-info-heading {
+    display: inherit;
+  }
+
+  #order-details {
+    width: 250px;
+  }
+  .overall-page_height {
+    margin-top: 0;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+}

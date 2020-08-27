@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartItems } from "./Hooks/useCartItems";
-import {Row, Col, Container, Table, Button } from "react-bootstrap";
+import { Row, Col, Container, Table, Button } from "react-bootstrap";
 import util from "../util";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
@@ -64,13 +64,14 @@ const Cart = () => {
                             <b>{item.title}</b> X {item.count} = ${" "}
                             {item.price * item.count}
                           </span>
-
-                          <Button
-                            className="button_primary-color cart__line-item-x-button"
-                            onClick={() => handleRemoveFromCart(item)}
-                          >
-                            X
-                          </Button>
+                          <div>
+                            <Button
+                              className="button_primary-color cart__line-item-x-button"
+                              onClick={() => handleRemoveFromCart(item)}
+                            >
+                              X
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>

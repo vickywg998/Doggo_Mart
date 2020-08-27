@@ -3,4 +3,3 @@ export const useUpdateCartItems = () => (cartItems) => {
   console.log(localStorage.cartItems, "localstorage cart items");
 };
 
-// hook is a function returning another function 

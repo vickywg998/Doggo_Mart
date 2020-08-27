@@ -1,19 +1,23 @@
 import React from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Row, Col } from "react-bootstrap";
 
 const Filter = (props) => {
   return (
     <Row className="homepage-result">
       <Col md={4}>
-        <label>Order by : </label>
+        <div>
+          {" "}
+          <label>Order by : </label>
+        </div>
         <select value={props.sortValue} onChange={props.handleChangeSort}>
           <option value="ascending">Lowest to Highest</option>
           <option value="descending">Highest to Lowest</option>
         </select>
-        </Col>
-        <Col md={4}>
-        <label>Filter by Size: </label>
+      </Col>
+      <Col md={4}>
+        <div>
+          <label>Filter by Size: </label>
+        </div>
         <select value={props.filterValue} onChange={props.handleChangeSize}>
           <option value="">All</option>
           <option value="xs">XS</option>
