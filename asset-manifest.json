@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Doggo_Mart/static/css/main.a3b36fa4.chunk.css",
-    "main.js": "/Doggo_Mart/static/js/main.c3f49571.chunk.js",
-    "main.js.map": "/Doggo_Mart/static/js/main.c3f49571.chunk.js.map",
+    "main.js": "/Doggo_Mart/static/js/main.b1219b4d.chunk.js",
+    "main.js.map": "/Doggo_Mart/static/js/main.b1219b4d.chunk.js.map",
     "runtime-main.js": "/Doggo_Mart/static/js/runtime-main.9e388b71.js",
     "runtime-main.js.map": "/Doggo_Mart/static/js/runtime-main.9e388b71.js.map",
     "static/css/2.47e06e2e.chunk.css": "/Doggo_Mart/static/css/2.47e06e2e.chunk.css",
     "static/js/2.8bdbaa81.chunk.js": "/Doggo_Mart/static/js/2.8bdbaa81.chunk.js",
     "static/js/2.8bdbaa81.chunk.js.map": "/Doggo_Mart/static/js/2.8bdbaa81.chunk.js.map",
     "index.html": "/Doggo_Mart/index.html",
-    "precache-manifest.ad0baf326ff728d40c578424c1073e02.js": "/Doggo_Mart/precache-manifest.ad0baf326ff728d40c578424c1073e02.js",
+    "precache-manifest.977457794fb11b6a0790cdaa82db781e.js": "/Doggo_Mart/precache-manifest.977457794fb11b6a0790cdaa82db781e.js",
     "service-worker.js": "/Doggo_Mart/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/Doggo_Mart/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.a3b36fa4.chunk.css.map": "/Doggo_Mart/static/css/main.a3b36fa4.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.47e06e2e.chunk.css",
     "static/js/2.8bdbaa81.chunk.js",
     "static/css/main.a3b36fa4.chunk.css",
-    "static/js/main.c3f49571.chunk.js"
+    "static/js/main.b1219b4d.chunk.js"
   ]
 }
