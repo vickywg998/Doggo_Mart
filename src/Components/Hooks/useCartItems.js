@@ -10,7 +10,7 @@ export const useCartItems = () => {
       }
     } catch (error) {}
   }
-  return []; // if empty then return nothing 
+  return []; 
 };
 
 
