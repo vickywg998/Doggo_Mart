@@ -45,8 +45,7 @@ function Home() {
     setFavItems(newFavItems);
     myFavUpdatingFunction(newFavItems);
   };
-  //newCartItems can be any name, replacing updateCartItemsWithHook(newCartItems); & updateCartItemsWithHook(removedCartItems);
-
+  
   const handleChangeSort = (e) => {
     const newSortValue = e.target.value;
     setSortValue(newSortValue);

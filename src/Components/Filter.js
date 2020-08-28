@@ -28,7 +28,13 @@ const Filter = (props) => {
           <option value="xxl">XXL</option>
         </select>
       </Col>
-      <Col md={4}>{props.count} doggos found.</Col>
+      <Col md={4}>
+        {props.count <= 1 ? (
+          <>{props.count} doggo found.</>
+        ) : (
+          <>{props.count} doggos found.</>
+        )}
+      </Col>
     </Row>
   );
 };
