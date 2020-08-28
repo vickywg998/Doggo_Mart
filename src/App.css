@@ -2,19 +2,20 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5, th {
   font-family: "Acme", sans-serif;
 }
 
 span,
 p,
-li {
+li,tr {
   font-family: "Ubuntu", sans-serif;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin-top: 1rem;
 }
 .app {
   background: #bb93a9;
@@ -46,6 +47,10 @@ nav {
 
 .nav-links a {
   text-decoration: none;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .nav-links a:hover {
@@ -280,6 +285,8 @@ nav {
 .order_summary_container {
   width: 250px;
   margin: 3em 0 2em 1em;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 #order-details {
@@ -316,9 +323,35 @@ nav {
 }
 
 select {
-  border: solid rgb(255, 255, 255) 1px;
+  border: solid rgb(34,36,38,.15) 1px;
   border-radius: 5px;
   padding: 5px;
+}
+
+.checkout__order-button {
+  display: block;
+  width: 250px;
+}
+
+/* confirmation page */ 
+
+.loading-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.confirmation-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+
+}
+
+.confirmation-icon-container {
+  margin: 20px 0;
 }
 
 /* mobile responsive */

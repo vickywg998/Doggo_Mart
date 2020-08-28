@@ -21,6 +21,11 @@ const Cart = () => {
     updateCartItemsWithHook(removedCartItems);
   };
 
+  const handleCheckout = (allCartItems) => {
+   allCartItems = [];
+    updateCartItemsWithHook(allCartItems);
+  };
+
   return (
     <Container>
       <Row className="overall-page_height">
@@ -47,13 +52,13 @@ const Cart = () => {
                   <div className="cart__line-item">
                     <div className="cart-item-content-container">
                       <div className="cart__product-image-container">
-                        {/* <div className="cart__product-button"> */}
+             
                         <img
                           className="cart__img"
-                          src={`/products/${item.sku}.jpg`}
+                          src={`${process.env.PUBLIC_URL}/products/${item.sku}.jpg`}
                           alt={item.title}
                         />
-                        {/* </div> */}
+                   
                       </div>
                       <div className="cart__line-item-info-container">
                         <div className="cart__line-item-info-heading">
@@ -114,6 +119,16 @@ const Cart = () => {
                 </tbody>
               </Table>
             </div>
+
+            <Link to="/confirmation">
+              <Button
+                className="button_primary-color checkout__order-button"
+                onClick={() => handleCheckout(cartItems)}
+              >
+                Continue to Checkout
+              </Button>
+            </Link>
+
           </div>
         </Col>
       </Row>

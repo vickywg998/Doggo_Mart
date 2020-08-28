@@ -6,7 +6,8 @@ import Nav from './Components/Nav';
 import Cart from "./Components/Cart";
 import Favorite from "./Components/Favorite";
 import Home from "./Components/Home";
-import Footer from './Components/Footer'
+import Footer from './Components/Footer';
+import Confirmation from "./Components/Confirmation";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Doggo_Mart" exact component={Home} />
           <Route path="/cart" component={Cart} />
           <Route path="/favorite" component={Favorite} />
+          <Route path="/confirmation" component={Confirmation} />
         </Switch>
         <Footer />
       </Router>

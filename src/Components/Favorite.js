@@ -51,7 +51,7 @@ const Favorite = () => {
                       <div className="cart__product-image-container">
                         <img
                           className="cart__img"
-                          src={`/products/${item.sku}.jpg`}
+                          src={`${process.env.PUBLIC_URL}/products/${item.sku}.jpg`}
                           alt={item.title}
                         />
                       </div>

@@ -18,7 +18,7 @@ function Nav() {
         alt="doggo"
       />
       <ul className="nav-links">
-        <Link style={navStyle} to="/">
+        <Link style={navStyle} to="/Doggo_Mart">
           <li>
             <span>Homepage &nbsp;</span> <Icon name="home" size="small" />
           </li>
