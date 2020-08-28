@@ -8,6 +8,7 @@ import Favorite from "./Components/Favorite";
 import Home from "./Components/Home";
 import Footer from './Components/Footer';
 import Confirmation from "./Components/Confirmation";
+import About from "./Components/About";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/favorite" component={Favorite} />
           <Route path="/confirmation" component={Confirmation} />
+          <Route path="/about" component={About} />
+          {/* <Route path="/contact" component={Contact} /> */}
         </Switch>
         <Footer />
       </Router>

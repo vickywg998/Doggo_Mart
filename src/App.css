@@ -2,13 +2,15 @@ h1,
 h2,
 h3,
 h4,
-h5, th {
+h5,
+th {
   font-family: "Acme", sans-serif;
 }
 
 span,
 p,
-li,tr {
+li,
+tr {
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -141,7 +143,6 @@ a {
   margin-top: 2em;
 }
 
-
 #block {
   width: 100%;
   height: 700px;
@@ -157,7 +158,6 @@ a {
 #list .card {
   max-width: 250px;
 }
-
 
 @media (min-width: 576px) {
   .card-deck {
@@ -320,7 +320,7 @@ a {
 }
 
 select {
-  border: solid rgb(34,36,38,.15) 1px;
+  border: solid rgb(34, 36, 38, 0.15) 1px;
   border-radius: 5px;
   padding: 5px;
 }
@@ -330,25 +330,43 @@ select {
   width: 250px;
 }
 
-/* confirmation page */ 
+/* confirmation page */
 
 .loading-container {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
 }
 
 .confirmation-container {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
-
 }
 
 .confirmation-icon-container {
   margin: 20px 0;
+}
+
+/*about page */
+.about-image {
+  height: 100vh;
+  width: 70vh;
+}
+.about-headline {
+  padding: 1em 0;
+
+}
+
+.about-content p {
+  line-height: 2.25em;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: .2px;
+    margin-top: 2em;
+    margin-bottom: 0;
 }
 
 /* mobile responsive */
@@ -395,7 +413,8 @@ select {
   #list {
     grid-gap: 0px;
   }
-  .overall-page_height .col-7, .overall-page_height .col-9 {
+  .overall-page_height .col-7,
+  .overall-page_height .col-9 {
     max-width: 100%;
   }
   .overall-page_height .col-4 {

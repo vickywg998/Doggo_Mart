@@ -5,6 +5,7 @@ import { Row, Col, Container, Table, Button } from "react-bootstrap";
 import util from "../util";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
 
+
 const Cart = () => {
   const [cartItems, setCartItems] = useState(useCartItems());
   console.log(cartItems, "loading from cart.js");
@@ -27,7 +28,8 @@ const Cart = () => {
   };
 
   return (
-    <Container>
+    <Container>    
+ 
       <Row className="overall-page_height">
         <Col xs={7}>
           <Link to="/">
@@ -132,6 +134,7 @@ const Cart = () => {
           </div>
         </Col>
       </Row>
+
     </Container>
   );
 };

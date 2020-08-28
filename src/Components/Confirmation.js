@@ -18,9 +18,6 @@ const Confirmation = () => {
     <Container fluid="md">
       <Row className="overall-page_height">
         <Col>
-          {/* <h1>{animation}</h1>
-        <button onClick={() => setAnimation(animation)}>Increment</button>
-      */}
           {loading ? (
             <div className="loading-container">
               <img src={loading_doggo} />
