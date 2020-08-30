@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73e3c4aebb011711f615974e8c9334a9",
+    "revision": "9ba08db2ff799afb327b9bd91d6f1854",
     "url": "/Doggo_Mart/index.html"
   },
   {
-    "revision": "73c033727d47c912de20",
+    "revision": "5105b9ea6a8616db68bf",
     "url": "/Doggo_Mart/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "a93bc4b5493094db0764",
-    "url": "/Doggo_Mart/static/css/main.53b50571.chunk.css"
+    "revision": "7b4e54b4b688b1415425",
+    "url": "/Doggo_Mart/static/css/main.0a23c2cd.chunk.css"
   },
   {
-    "revision": "73c033727d47c912de20",
-    "url": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js"
+    "revision": "5105b9ea6a8616db68bf",
+    "url": "/Doggo_Mart/static/js/2.726d54ed.chunk.js"
   },
   {
-    "revision": "967c3aa677d48917bda81b3b2ff2693c",
-    "url": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js.LICENSE.txt"
+    "revision": "7fc133e7dcb54c02f7a3050ffcb26594",
+    "url": "/Doggo_Mart/static/js/2.726d54ed.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a93bc4b5493094db0764",
-    "url": "/Doggo_Mart/static/js/main.1a8ef7ae.chunk.js"
+    "revision": "7b4e54b4b688b1415425",
+    "url": "/Doggo_Mart/static/js/main.4ea8ce76.chunk.js"
   },
   {
     "revision": "adf0d09a03cd46830208",

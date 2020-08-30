@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Doggo_Mart/static/css/main.53b50571.chunk.css",
-    "main.js": "/Doggo_Mart/static/js/main.1a8ef7ae.chunk.js",
-    "main.js.map": "/Doggo_Mart/static/js/main.1a8ef7ae.chunk.js.map",
+    "main.css": "/Doggo_Mart/static/css/main.0a23c2cd.chunk.css",
+    "main.js": "/Doggo_Mart/static/js/main.4ea8ce76.chunk.js",
+    "main.js.map": "/Doggo_Mart/static/js/main.4ea8ce76.chunk.js.map",
     "runtime-main.js": "/Doggo_Mart/static/js/runtime-main.9e388b71.js",
     "runtime-main.js.map": "/Doggo_Mart/static/js/runtime-main.9e388b71.js.map",
     "static/css/2.47e06e2e.chunk.css": "/Doggo_Mart/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.dc4fff9c.chunk.js": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js",
-    "static/js/2.dc4fff9c.chunk.js.map": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js.map",
+    "static/js/2.726d54ed.chunk.js": "/Doggo_Mart/static/js/2.726d54ed.chunk.js",
+    "static/js/2.726d54ed.chunk.js.map": "/Doggo_Mart/static/js/2.726d54ed.chunk.js.map",
     "index.html": "/Doggo_Mart/index.html",
-    "precache-manifest.c9ffb6896cb1fa8e83ca95d671e2dba6.js": "/Doggo_Mart/precache-manifest.c9ffb6896cb1fa8e83ca95d671e2dba6.js",
+    "precache-manifest.e750a9c58aac66a505732c491411d8f2.js": "/Doggo_Mart/precache-manifest.e750a9c58aac66a505732c491411d8f2.js",
     "service-worker.js": "/Doggo_Mart/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/Doggo_Mart/static/css/2.47e06e2e.chunk.css.map",
-    "static/css/main.53b50571.chunk.css.map": "/Doggo_Mart/static/css/main.53b50571.chunk.css.map",
-    "static/js/2.dc4fff9c.chunk.js.LICENSE.txt": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js.LICENSE.txt",
+    "static/css/main.0a23c2cd.chunk.css.map": "/Doggo_Mart/static/css/main.0a23c2cd.chunk.css.map",
+    "static/js/2.726d54ed.chunk.js.LICENSE.txt": "/Doggo_Mart/static/js/2.726d54ed.chunk.js.LICENSE.txt",
     "static/media/about_image.jpg": "/Doggo_Mart/static/media/about_image.8700eee7.jpg",
     "static/media/confirmation_doggo.gif": "/Doggo_Mart/static/media/confirmation_doggo.703d2e7e.gif",
     "static/media/doggopic.jpg": "/Doggo_Mart/static/media/doggopic.8401eb48.jpg",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.9e388b71.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.dc4fff9c.chunk.js",
-    "static/css/main.53b50571.chunk.css",
-    "static/js/main.1a8ef7ae.chunk.js"
+    "static/js/2.726d54ed.chunk.js",
+    "static/css/main.0a23c2cd.chunk.css",
+    "static/js/main.4ea8ce76.chunk.js"
   ]
 }
