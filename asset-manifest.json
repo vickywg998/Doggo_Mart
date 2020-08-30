@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Doggo_Mart/static/css/main.db797c8e.chunk.css",
+    "main.css": "/Doggo_Mart/static/css/main.53b50571.chunk.css",
     "main.js": "/Doggo_Mart/static/js/main.1a8ef7ae.chunk.js",
     "main.js.map": "/Doggo_Mart/static/js/main.1a8ef7ae.chunk.js.map",
     "runtime-main.js": "/Doggo_Mart/static/js/runtime-main.9e388b71.js",
@@ -9,10 +9,10 @@
     "static/js/2.dc4fff9c.chunk.js": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js",
     "static/js/2.dc4fff9c.chunk.js.map": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js.map",
     "index.html": "/Doggo_Mart/index.html",
-    "precache-manifest.366b4810f9a2dd5bd29eae5004157873.js": "/Doggo_Mart/precache-manifest.366b4810f9a2dd5bd29eae5004157873.js",
+    "precache-manifest.c9ffb6896cb1fa8e83ca95d671e2dba6.js": "/Doggo_Mart/precache-manifest.c9ffb6896cb1fa8e83ca95d671e2dba6.js",
     "service-worker.js": "/Doggo_Mart/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/Doggo_Mart/static/css/2.47e06e2e.chunk.css.map",
-    "static/css/main.db797c8e.chunk.css.map": "/Doggo_Mart/static/css/main.db797c8e.chunk.css.map",
+    "static/css/main.53b50571.chunk.css.map": "/Doggo_Mart/static/css/main.53b50571.chunk.css.map",
     "static/js/2.dc4fff9c.chunk.js.LICENSE.txt": "/Doggo_Mart/static/js/2.dc4fff9c.chunk.js.LICENSE.txt",
     "static/media/about_image.jpg": "/Doggo_Mart/static/media/about_image.8700eee7.jpg",
     "static/media/confirmation_doggo.gif": "/Doggo_Mart/static/media/confirmation_doggo.703d2e7e.gif",
@@ -24,7 +24,7 @@
     "static/js/runtime-main.9e388b71.js",
     "static/css/2.47e06e2e.chunk.css",
     "static/js/2.dc4fff9c.chunk.js",
-    "static/css/main.db797c8e.chunk.css",
+    "static/css/main.53b50571.chunk.css",
     "static/js/main.1a8ef7ae.chunk.js"
   ]
 }
