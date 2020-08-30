@@ -12,7 +12,7 @@ function Nav() {
 
   return (
     <nav>
-      <Link style={navStyle} to="/Doggo_Mart">
+      <Link style={navStyle} to="/">
         <img
           src={require("../assets/doggopic.jpg")}
           className="logo"
@@ -21,23 +21,19 @@ function Nav() {
       </Link>
 
       <ul className="nav-links">
-        {/* <Link style={navStyle} to="/Doggo_Mart">
+      <Link style={navStyle} to="/cart">
           <li>
-            <span>Homepage &nbsp;</span> <Icon name="home" size="small" />
+            <Icon name="add to cart" size="small" />
+            <span> Shopping Cart &nbsp;</span>
           </li>
-        </Link> */}
+        </Link>
         <Link style={navStyle} to="/favorite">
           <li>
             <Icon name="heart" size="small" />
             <span> Favorite &nbsp;</span>
           </li>
         </Link>
-        <Link style={navStyle} to="/cart">
-          <li>
-            <Icon name="add to cart" size="small" />
-            <span> Shopping Cart &nbsp;</span>
-          </li>
-        </Link>
+ 
         <Link style={navStyle} to="/about">
           <li>
             <Icon name="smile outline" size="small" />

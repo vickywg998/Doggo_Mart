@@ -4,8 +4,6 @@ import { Animated } from "react-animated-css";
 import AboutImage from "../assets/about_image.jpg";
 
 const About = () => {
-  //   const windowWidth = useContext(WindowWidthContext);
-  //   const { extra } = props;
 
   return (
     <>

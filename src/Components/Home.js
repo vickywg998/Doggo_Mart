@@ -9,6 +9,7 @@ import Filter from "./Filter";
 import Basket from "./Basket";
 import Cart from "./Cart";
 import Searchbar from "./Searchbar";
+// import DoggoDB from "../assets/db.json";
 
 import { useCartItems } from "./Hooks/useCartItems";
 import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
@@ -26,9 +27,17 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:8000/products");
-      const allProducts = await res.json();
-      setProducts(allProducts);
+      const res = await fetch(`db.json`, {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+  
+      })
+;
+      const result = await res.json();
+      setProducts(result.products);
+      console.log(result.product)
     };
     fetchData();
   }, []);

@@ -10,7 +10,7 @@ const Confirmation = () => {
   useEffect(() => {
     const loading_animation = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2500);
     return () => clearTimeout(loading_animation);
   }, []);
 

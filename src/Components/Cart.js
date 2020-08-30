@@ -34,7 +34,7 @@ const Cart = () => {
         <Col xs={7}>
           <Link to="/">
             <Button className="cart__page-left-title">
-              ← Back to Shopping
+              ← Back to Browsing
             </Button>
           </Link>
           {cartItems.length === 0 ? (
@@ -42,8 +42,8 @@ const Cart = () => {
           ) : (
             <h3>
               {" "}
-              You have {cartItems.length} different{" "}
-              {cartItems.length > 1 ? "doggos" : "doggo"} to pet in the Doggo
+              You have {cartItems.length} 
+              {cartItems.length > 1 ? "different doggos" : " doggo"} to pet in the Doggo
               Basket.
             </h3>
           )}
@@ -121,15 +121,19 @@ const Cart = () => {
                 </tbody>
               </Table>
             </div>
-
+            {cartItems.length === 0 ? (
+           <></>
+          ) : (
             <Link to="/confirmation">
-              <Button
-                className="button_primary-color checkout__order-button"
-                onClick={() => handleCheckout(cartItems)}
-              >
-                Continue to Checkout
-              </Button>
-            </Link>
+            <Button
+              className="button_primary-color checkout__order-button"
+              onClick={() => handleCheckout(cartItems)}
+            >
+              Continue to Checkout
+            </Button>
+          </Link>
+          )}
+       
 
           </div>
         </Col>

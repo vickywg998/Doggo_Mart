@@ -38,8 +38,8 @@ const Favorite = () => {
             "You don't have any favorite doggos yet. Please give them some love <3"
           ) : (
             <h3>
-              Woohoo, you favorited {favItems.length} different{" "}
-              {favItems.length > 1 ? "doggos" : "doggo"}! :)
+              Woohoo, you favorited {favItems.length} 
+              {favItems.length > 1 ? "different doggos" : "doggo"}! :)
             </h3>
           )}
           <div className="cart__cart-list">

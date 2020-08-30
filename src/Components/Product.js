@@ -4,7 +4,6 @@ import util from "../util";
 import { Icon, Button } from "semantic-ui-react";
 
 function Product(props) {
-  console.log(props);
   const [modalShow, setModalShow] = useState(false);
 
   const product = props.product;
