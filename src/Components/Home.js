@@ -27,7 +27,7 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`db.json`, {
+      const res = await fetch(`./db.json`, {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
