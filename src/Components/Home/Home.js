@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
-import "../App.css";
+import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Products from "./Products";
 import { Container, Row, Col } from "react-bootstrap";
 import Banner from "./Banner";
 import Filter from "./Filter";
 import Basket from "./Basket";
-import Cart from "./Cart";
+import Cart from "../Cart/Cart";
 import Searchbar from "./Searchbar";
-// import DoggoDB from "../assets/db.json";
 
-import { useCartItems } from "./Hooks/useCartItems";
-import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
+import { useCartItems } from "../Hooks/useCartItems";
+import { useUpdateCartItems } from "../Hooks/useUpdateCartItems";
 
-import { useFavItems } from "./Hooks/useFavItems";
-import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";
+import { useFavItems } from "../Hooks/useFavItems";
+import { useUpdateFavItems } from "../Hooks/useUpdateFavItems";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -37,7 +36,7 @@ function Home() {
 ;
       const result = await res.json();
       setProducts(result.products);
-      console.log(result.product)
+
     };
     fetchData();
   }, []);
@@ -118,7 +117,7 @@ function Home() {
           <Col md={{ span: 4, offset: 9 }}>
             <Searchbar
               handleChangeSearch={handleChangeSearch}
-              search={search}xf
+              search={search}
             />
           </Col>
         </Row>

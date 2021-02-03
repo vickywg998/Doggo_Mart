@@ -1,5 +1,5 @@
 import React from 'react';
-import desktopImage from '../assets/gradient.jpg';
+import desktopImage from '../../assets/gradient.jpg';
 
 const Banner = () => {
 

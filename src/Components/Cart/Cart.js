@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useCartItems } from "./Hooks/useCartItems";
+import { Link, useHistory } from "react-router-dom";
+import { useCartItems } from "../Hooks/useCartItems";
 import { Row, Col, Container, Table, Button } from "react-bootstrap";
-import util from "../util";
-import { useUpdateCartItems } from "./Hooks/useUpdateCartItems";
-
+import util from "../Cart/priceUtil";
+import { useUpdateCartItems } from "../Hooks/useUpdateCartItems";
 
 const Cart = () => {
+  let history = useHistory();
   const [cartItems, setCartItems] = useState(useCartItems());
   console.log(cartItems, "loading from cart.js");
 
@@ -23,28 +23,29 @@ const Cart = () => {
   };
 
   const handleCheckout = (allCartItems) => {
-   allCartItems = [];
+    allCartItems = [];
     updateCartItemsWithHook(allCartItems);
   };
 
+  const handleBackButton = () => {
+    history.push("/Doggo_Mart/");
+  };
+
   return (
-    <Container>    
- 
+    <Container>
       <Row className="overall-page_height">
         <Col xs={7}>
-          <Link to="/">
-            <Button className="cart__page-left-title">
-              ← Back to Browsing
-            </Button>
-          </Link>
+          <Button className="cart__page-left-title" onClick={handleBackButton}>
+            ← Back to Browsing
+          </Button>
+
           {cartItems.length === 0 ? (
             "Doggo Basket is empty"
           ) : (
             <h3>
-              {" "}
-              You have {cartItems.length} 
-              {cartItems.length > 1 ? "different doggos" : " doggo"} to pet in the Doggo
-              Basket.
+              You have {cartItems.length}
+              {cartItems.length > 1 ? "different doggos" : " doggo"} to pet in
+              the Doggo Basket.
             </h3>
           )}
           <div className="cart__cart-list">
@@ -54,13 +55,11 @@ const Cart = () => {
                   <div className="cart__line-item">
                     <div className="cart-item-content-container">
                       <div className="cart__product-image-container">
-             
                         <img
                           className="cart__img"
                           src={`${process.env.PUBLIC_URL}/products/${item.sku}.jpg`}
                           alt={item.title}
                         />
-                   
                       </div>
                       <div className="cart__line-item-info-container">
                         <div className="cart__line-item-info-heading">
@@ -122,23 +121,20 @@ const Cart = () => {
               </Table>
             </div>
             {cartItems.length === 0 ? (
-           <></>
-          ) : (
-            <Link to="/confirmation">
-            <Button
-              className="button_primary-color checkout__order-button"
-              onClick={() => handleCheckout(cartItems)}
-            >
-              Continue to Checkout
-            </Button>
-          </Link>
-          )}
-       
-
+              <></>
+            ) : (
+              <Link to="/confirmation">
+                <Button
+                  className="button_primary-color checkout__order-button"
+                  onClick={() => handleCheckout(cartItems)}
+                >
+                  Continue to Checkout
+                </Button>
+              </Link>
+            )}
           </div>
         </Col>
       </Row>
-
     </Container>
   );
 };

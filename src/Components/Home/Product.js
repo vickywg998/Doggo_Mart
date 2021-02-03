@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Modal } from "react-bootstrap";
-import util from "../util";
+import util from "../Cart/priceUtil";
 import { Icon, Button } from "semantic-ui-react";
 
 function Product(props) {

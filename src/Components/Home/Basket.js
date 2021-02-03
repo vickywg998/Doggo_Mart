@@ -1,9 +1,8 @@
 import React from "react";
-import {Alert, Button} from "react-bootstrap";
-import util from "../util";
+import { Alert, Button } from "react-bootstrap";
+import util from "../Cart/priceUtil";
 
 const Basket = (props) => {
-
   return (
     <Alert variant="secondary">
       {props.cartItems.length === 0 ? (
@@ -23,7 +22,10 @@ const Basket = (props) => {
           <ul className="basket_list">
             {props.cartItems.map((item) => (
               <li key={item.id} className="basket_list-padding">
-                <span><b>{item.title}</b> X {item.count} = $ {util.formatCurrency(item.price * item.count)}</span>
+                <span>
+                  <b>{item.title}</b> X {item.count} = ${" "}
+                  {util.formatCurrency(item.price * item.count)}
+                </span>
                 <Button
                   className="button_primary-color remove-button"
                   onClick={() => props.handleRemoveFromCart(item)}
@@ -33,10 +35,6 @@ const Basket = (props) => {
               </li>
             ))}
           </ul>
-
-      
-
-
           Total:{" "}
           {util.formatCurrency(
             props.cartItems.reduce((a, c) => a + c.price * c.count, 0)

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { Icon } from "semantic-ui-react";
-import loading_doggo from "../assets/loading_doggo.gif";
-import confirmation_doggo from "../assets/confirmation_doggo.gif";
+import loading_doggo from "../../assets/loading_doggo.gif";
+import confirmation_doggo from "../../assets/confirmation_doggo.gif";
 
 const Confirmation = () => {
   const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ const Confirmation = () => {
         <Col>
           {loading ? (
             <div className="loading-container">
-              <img src={loading_doggo} />
+              <img src={loading_doggo} alt="doggo_running_gif" />
               <h1>Processing...</h1>
             </div>
           ) : (
@@ -29,7 +29,7 @@ const Confirmation = () => {
               <div className="confirmation-icon-container">
                 <Icon name="check circle" size="huge"></Icon>
               </div>
-              <img src={confirmation_doggo} />
+              <img src={confirmation_doggo} alt="doggo_jumping_on_trampoline"/>
             </div>
           )}
         </Col>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import {Row, Col, Container, Button} from "react-bootstrap";
 import { Icon } from "semantic-ui-react";
-import { useFavItems } from "./Hooks/useFavItems";
-import { useUpdateFavItems } from "./Hooks/useUpdateFavItems";
+import { useFavItems } from "../Hooks/useFavItems";
+import { useUpdateFavItems } from "../Hooks/useUpdateFavItems";
 
 const Favorite = () => {
   const [favItems, setFavItems] = useState(useFavItems());
