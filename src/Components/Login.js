@@ -21,7 +21,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/profile");
     } catch {
-      setError("Failed to login");
+      setError("Failed to login, try again!");
     }
     setLoading(false);
   }
